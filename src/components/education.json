@@ -1,0 +1,14 @@
+[
+  {
+    "degree": "M.Sc. Computer Science",
+    "institution": "Stanford University",
+    "period": "2018 - 2020",
+    "details": "Specialized in AI and distributed systems. Graduated with honors."
+  },
+  {
+    "degree": "B.Sc. Software Engineering",
+    "institution": "UC Berkeley",
+    "period": "2014 - 2018",
+    "details": "Focused on full-stack development and UX design."
+  }
+]

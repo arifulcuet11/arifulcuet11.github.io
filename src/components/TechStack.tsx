@@ -1,16 +1,5 @@
-import React from 'react';
 import { motion } from 'motion/react';
-
-const skills = [
-  { name: 'TypeScript', category: 'Frontend' },
-  { name: 'React / Next.js', category: 'Frontend' },
-  { name: 'Node.js', category: 'Backend' },
-  { name: 'PostgreSQL', category: 'Backend' },
-  { name: 'AWS / Cloud', category: 'DevOps' },
-  { name: 'Docker', category: 'DevOps' },
-  { name: 'Tailwind CSS', category: 'UI/UX' },
-  { name: 'Figma', category: 'UI/UX' },
-];
+import aboutData from './about.json';
 
 export function TechStack() {
   return (
@@ -24,18 +13,29 @@ export function TechStack() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {skills.map((skill, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {aboutData.skills.map((skill, idx) => (
             <motion.div
-              key={skill.name}
+              key={skill.category}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
               className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow group"
             >
-              <span className="text-xs font-medium text-indigo-500 mb-2 block uppercase tracking-wider">{skill.category}</span>
-              <h3 className="text-gray-900 group-hover:text-indigo-600 transition-colors">{skill.name}</h3>
+              <h3 className="text-indigo-700 text-lg font-semibold mb-3 text-center">
+                {skill.category}
+              </h3>
+              <ul className="flex flex-wrap gap-2 justify-center">
+                {skill.items.split(',').map((item, i) => (
+                  <li
+                    key={item.trim()}
+                    className="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium shadow-sm"
+                  >
+                    {item.trim()}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

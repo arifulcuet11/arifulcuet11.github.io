@@ -5,6 +5,8 @@ import { TechStack } from './components/TechStack';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
 import { Contact } from './components/Contact';
+import { Education } from './components/Education';
+import { ProfessionalSkills } from './components/ProfessionalSkills';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -14,8 +16,10 @@ export default function App() {
       <main>
         <Hero />
         <TechStack />
+        <ProfessionalSkills />
         <Projects />
         <Experience />
+        <Education />
         <Contact />
       </main>
       <Footer />

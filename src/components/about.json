@@ -1,0 +1,33 @@
+{
+  "about": "Associate Lead – Software Development with over 6.5 years of experience in full-stack development using .NET, React, and Angular. Skilled in leading teams and driving technical excellence in cloud-native, microservices-based architectures.\n\nProven expertise in designing and deploying automated, scalable solutions across finance, education, and transportation sectors. Strong background in backend and frontend development, cloud infrastructure, DevOps automation, integration, and identity management.\n\nI excel in mentoring developers, implementing best practices, and delivering high-impact projects using modern technologies and design patterns.",
+  "skills": [
+    {
+      "category": "Backend Development",
+      "items": ".NET Core, NestJS, Microservices, RabbitMQ, Redis, Entity Framework, MassTransit"
+    },
+    {
+      "category": "Database Management",
+      "items": "MSSQL, MySQL, MongoDB, Cosmos DB"
+    },
+    {
+      "category": "Frontend Development",
+      "items": "Angular, React, Next.js, Redux, TypeScript, JavaScript, HTML, CSS, TailwindCSS, NgRx, Bootstrap, Material-UI, Responsive Web Design"
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": "Azure, Azure DevOps, Docker, Kubernetes (AKS), Helm, ArgoCD, ACR"
+    },
+    {
+      "category": "Integration & Identity Management",
+      "items": "SCIM, OAuth2, OpenID Connect, RESTful APIs, WebSocket, OpenAPI"
+    },
+    {
+      "category": "Automation & Open Source",
+      "items": "n8n, ArgoCD, GitLab CI/CD, GitHub Actions, Automated Security Tools, Code Scanning"
+    },
+    {
+      "category": "Design Patterns",
+      "items": "CQRS, Singleton, Factory, Repository, Strategy"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ChevronRight, Terminal } from 'lucide-react';
+import aboutData from './about.json';
 
 export function Hero() {
   return (
@@ -19,10 +20,11 @@ export function Hero() {
           <h1 className="text-gray-900 mb-6 leading-tight">
             Building digital <span className="text-indigo-600">experiences</span> that scale & inspire.
           </h1>
-          <p className="text-gray-600 mb-8 max-w-lg">
-            I'm Alex, a Senior Software Engineer specializing in full-stack development. 
-            I bridge the gap between complex backend systems and beautiful user interfaces.
-          </p>
+          <div className="mb-8 flex flex-col items-start">
+            <p className="text-gray-600 mb-6 max-w-2xl whitespace-pre-line leading-relaxed text-base text-justify">
+              {aboutData.about}
+            </p>
+          </div>
           <div className="flex flex-wrap gap-4">
             <button className="bg-indigo-600 text-white px-8 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
               View Projects <ChevronRight className="w-4 h-4" />
