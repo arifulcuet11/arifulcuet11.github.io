@@ -14,8 +14,8 @@
       "items": "Angular, React, Next.js, Redux, TypeScript, JavaScript, HTML, CSS, TailwindCSS, NgRx, Bootstrap, Material-UI, Responsive Web Design"
     },
     {
-      "category": "Cloud & DevOps",
-      "items": "Azure, Azure DevOps, Docker, Kubernetes (AKS), Helm, ArgoCD, ACR"
+      "category": "DevOps & Cloud",
+      "items": "Docker, Kubernetes, Kustomize, GitHub Actions, AWS, Azure, Azure Monitor, Log Analytics, Prometheus + Grafana, Serilog, Azure Application Insights, Terraform, CI/CD"
     },
     {
       "category": "Integration & Identity Management",

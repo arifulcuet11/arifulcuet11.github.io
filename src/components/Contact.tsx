@@ -1,10 +1,9 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { Send, Mail, MapPin, Phone } from 'lucide-react';
+import { Send, Mail, MapPin } from 'lucide-react';
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-24 px-6 scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         <div className="bg-indigo-900 rounded-[3rem] p-8 md:p-16 text-white overflow-hidden relative">
           {/* Background decoration */}

@@ -16,7 +16,6 @@ export default function App() {
       <main>
         <Hero />
         <TechStack />
-        <ProfessionalSkills />
         <Projects />
         <Experience />
         <Education />

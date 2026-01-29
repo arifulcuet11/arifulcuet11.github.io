@@ -22,7 +22,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Code2 className="w-6 h-6 text-indigo-600" />
-          <span className="font-bold text-gray-900 tracking-tight">dev.alex</span>
+          <span className="font-bold text-gray-900 tracking-tight">dev.ariful</span>
         </div>
         
         <div className="hidden md:flex items-center gap-8">
@@ -42,7 +42,14 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <a href="#" className="text-gray-400 hover:text-gray-900"><Github className="w-5 h-5" /></a>
-          <a href="#" className="text-gray-400 hover:text-gray-900"><Linkedin className="w-5 h-5" /></a>
+          <a
+            href="https://www.linkedin.com/in/ariful11/"
+            className="text-gray-400 hover:text-gray-900"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </motion.nav>

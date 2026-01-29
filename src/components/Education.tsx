@@ -5,7 +5,7 @@ import education from './education.json';
 export function Education() {
   return (
     <section id="education" className="py-24 bg-white px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-gray-900 text-center mb-16">Education</h2>
         <div className="space-y-12">
           {(education as Array<any>).map((edu, index) => (
