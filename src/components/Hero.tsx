@@ -39,7 +39,7 @@ export function Hero() {
           className="relative w-full aspect-[4/5] flex items-center justify-center"
         >
           <ImageWithFallback
-            src="./hero2.png"
+            src="./hero.png"
             alt="Arif - Software Engineer"
             className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
             style={{ zIndex: 0 }}
