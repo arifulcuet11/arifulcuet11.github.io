@@ -3,7 +3,7 @@
   "skills": [
     {
       "category": "Backend Development",
-      "items": ".NET Core, NestJS, Microservices, RabbitMQ, Redis, Entity Framework, MassTransit"
+      "items": ".NET, NestJS, Microservices, RabbitMQ, Redis, Entity Framework, MassTransit"
     },
     {
       "category": "Database Management",
@@ -11,19 +11,15 @@
     },
     {
       "category": "Frontend Development",
-      "items": "Angular, React, Next.js, Redux, TypeScript, JavaScript, HTML, CSS, TailwindCSS, NgRx, Bootstrap, Material-UI, Responsive Web Design"
+      "items": "Angular, React, Next.js, Redux, TypeScript, TailwindCSS, NgRx, Material-UI"
     },
     {
       "category": "DevOps & Cloud",
-      "items": "Docker, Kubernetes, Kustomize, GitHub Actions, AWS, Azure, Azure Monitor, Log Analytics, Prometheus + Grafana, Serilog, Azure Application Insights, Terraform, CI/CD"
-    },
-    {
-      "category": "Integration & Identity Management",
-      "items": "SCIM, OAuth2, OpenID Connect, RESTful APIs, WebSocket, OpenAPI"
+      "items": "Docker, Kubernetes, Helm, Kustomize, Azure, Azure Monitor, Prometheus + Grafana, Azure Application Insights, Terraform"
     },
     {
       "category": "Automation & Open Source",
-      "items": "n8n, ArgoCD, GitLab CI/CD, GitHub Actions, Automated Security Tools, Code Scanning"
+      "items": "N8N, Jenkins, ArgoCD, GitLab CI/CD, Automated Security Tools, Code Scanning"
     },
     {
       "category": "Design Patterns",

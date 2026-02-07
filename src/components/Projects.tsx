@@ -8,10 +8,10 @@ const projects = [
     title: '7Pack ERP',
     company: 'STS Capital',
     period: 'Jan 2020 - Present',
-    image: 'https://placehold.co/600x400?text=7Pack+ERP',
+    image: '7pack.png',
     description: 'Internal ERP project of 7pack.it to manage and integrate sales, marketing, order, purchasing inventory, finance, HR, delivery system, planning and more.',
-    tags: ['ASP.NET Web API', 'NgRx', 'Microsoft SQL Server', 'Azure Webjobs', 'Angular-9', 'TypeScript', 'RxJS'],
-    links: { github: '#', demo: '#' }
+    tags: ['ASP.NET Web API', 'Angular', 'Microsoft SQL Server', 'Azure Webjobs', 'Azure Storage', 'CI/CD', 'TypeScript', 'CosmosDb', 'Azure App Service'],
+    links: { github: '#', demo: 'https://7pack.lt/' }
   },
   {
     title: 'Rail Sheba (PWA Mobile App)',
@@ -20,7 +20,7 @@ const projects = [
     image: 'https://placehold.co/600x400?text=Rail+Sheba',
     description: 'Official PWA app for Bangladesh Railway. Users can purchase train tickets, pay via multiple methods, view travel history, and download e-tickets. Over 1M+ users.',
     tags: ['Angular-11', 'Azure DevOps', 'PWAs', 'NgRx', 'Git', 'Tailwind CSS', 'Angular Material', 'TypeScript'],
-    links: { github: '#', demo: '#' }
+    links: { github: '#', demo: 'https://7pack.lt/' }
   },
   {
     title: 'Digital Entrepreneur Academy',
@@ -93,7 +93,9 @@ export function Projects() {
               viewport={{ once: true }}
               className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video overflow-hidden" style={{
+                padding: '10px'
+              }}>
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
