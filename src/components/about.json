@@ -1,29 +1,44 @@
 {
-  "about": "Associate Lead – Software Development with over 6.5 years of experience in full-stack development using .NET, React, and Angular. Skilled in leading teams and driving technical excellence in cloud-native, microservices-based architectures.\n\nProven expertise in designing and deploying automated, scalable solutions across finance, education, and transportation sectors. Strong background in backend and frontend development, cloud infrastructure, DevOps automation, integration, and identity management.\n\nI excel in mentoring developers, implementing best practices, and delivering high-impact projects using modern technologies and design patterns.",
+  "name": "Ariful Islam",
+  "headline": "Associate Lead – Software Development | Azure Cloud & Kubernetes (AKS) | .NET · React",
+  "location": "Dhaka, Bangladesh",
+  "phone": "+880 1675-908553",
+  "email": "arifulcuet52@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/ariful11",
+  "github": "https://github.com/arifulcuet11",
+  "portfolio": "https://arifulcuet11.github.io",
+  "about": "Azure cloud engineer and Associate Lead with 9+ years building cloud-native systems in .NET, React and Angular. Designs, deploys and runs microservices on Azure, including private-network AKS clusters, Container Apps, Functions and Cosmos DB, with automated GitHub Actions CI/CD, Helm and Azure Monitor. Specialist in SCIM and Entra ID identity integration, leading teams that deliver secure, scalable platforms across finance, education and transportation.",
+  "stats": [
+    { "value": "9+", "label": "Years Experience" },
+    { "value": "AKS & Azure", "label": "Cloud-Native Specialist" },
+    { "value": "SCIM & Entra ID", "label": "Enterprise Identity" },
+    { "value": "1M+", "label": "Users Impacted" }
+  ],
   "skills": [
     {
-      "category": "Backend Development",
-      "items": ".NET, NestJS, Microservices, RabbitMQ, Redis, Entity Framework, MassTransit"
+      "category": "Cloud (Azure)",
+      "icon": "Cloud",
+      "items": "AKS (private clusters), Container Apps, App Services, Functions, Logic Apps, Cosmos DB, Entra ID, Azure Monitor, Application Insights"
     },
     {
-      "category": "Database Management",
-      "items": "MSSQL, MySQL, MongoDB, Cosmos DB"
+      "category": "DevOps & Automation",
+      "icon": "Workflow",
+      "items": "Kubernetes, Docker, Helm, GitHub Actions, Azure DevOps, CI/CD automation, n8n workflow automation"
     },
     {
-      "category": "Frontend Development",
-      "items": "Angular, React, Next.js, Redux, TypeScript, TailwindCSS, NgRx, Material-UI"
+      "category": "Backend",
+      "icon": "Server",
+      "items": ".NET Core, NestJS, Microservices, Entity Framework, MassTransit, RabbitMQ, Redis, Hangfire"
     },
     {
-      "category": "DevOps & Cloud",
-      "items": "Docker, Kubernetes, Helm, Kustomize, Azure, Azure Monitor, Prometheus + Grafana, Azure Application Insights, Terraform"
+      "category": "Frontend",
+      "icon": "Layout",
+      "items": "React, Angular, TypeScript, NgRx, TailwindCSS, Material-UI"
     },
     {
-      "category": "Automation & Open Source",
-      "items": "N8N, Jenkins, ArgoCD, GitLab CI/CD, Automated Security Tools, Code Scanning"
-    },
-    {
-      "category": "Design Patterns",
-      "items": "CQRS, Singleton, Factory, Repository, Strategy"
+      "category": "Identity & Data",
+      "icon": "ShieldCheck",
+      "items": "SCIM, OAuth2, OpenID Connect, SQL Server, Cosmos DB, MongoDB, MySQL"
     }
   ]
 }

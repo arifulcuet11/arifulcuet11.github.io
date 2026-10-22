@@ -1,126 +1,164 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Layers, Building2, Calendar } from 'lucide-react';
 
 const projects = [
   {
+    title: 'Cloud-Native Microservices & SCIM Identity Platform',
+    company: 'Kloudynet Technologies',
+    period: '2022 – Present',
+    image: '',
+    badge: 'Enterprise Cloud & Identity',
+    description:
+      'Designed and deployed cloud-native .NET & React microservices on private-network Azure AKS clusters and Container Apps using Helm and GitHub Actions CI/CD. Integrated Microsoft SCIM & Entra ID for automated enterprise user provisioning and event-driven messaging via MassTransit & RabbitMQ.',
+    tags: ['.NET Core', 'React', 'Azure AKS', 'Container Apps', 'SCIM', 'Entra ID', 'Helm', 'GitHub Actions', 'MassTransit', 'RabbitMQ'],
+    links: { demo: '' }
+  },
+  {
     title: '7Pack ERP',
     company: 'STS Capital',
-    period: 'Jan 2020 - Present',
+    period: 'Feb 2020 – June 2022',
     image: '7pack.png',
-    description: 'Internal ERP project of 7pack.it to manage and integrate sales, marketing, order, purchasing inventory, finance, HR, delivery system, planning and more.',
-    tags: ['ASP.NET Web API', 'Angular', 'Microsoft SQL Server', 'Azure Webjobs', 'Azure Storage', 'CI/CD', 'TypeScript', 'CosmosDb', 'Azure App Service'],
-    links: { github: '#', demo: 'https://7pack.lt/' }
+    badge: 'Enterprise ERP',
+    description:
+      'Comprehensive ERP platform for 7pack.lt integrating sales, marketing, orders, purchasing inventory, finance, HR, delivery planning, and reusable modern Angular components.',
+    tags: ['ASP.NET Web API', 'Angular', 'SQL Server', 'Cosmos DB', 'Azure App Service', 'Azure Functions', 'CI/CD', 'TypeScript'],
+    links: { demo: 'https://7pack.lt/' }
   },
   {
-    title: 'Rail Sheba (PWA Mobile App)',
+    title: 'Rail Sheba & Ticketing Systems (PWA)',
     company: 'FairPattern.com',
-    period: 'Jan 2022 - Jun 2022',
-    image: 'https://placehold.co/600x400?text=Rail+Sheba',
-    description: 'Official PWA app for Bangladesh Railway. Users can purchase train tickets, pay via multiple methods, view travel history, and download e-tickets. Over 1M+ users.',
-    tags: ['Angular-11', 'Azure DevOps', 'PWAs', 'NgRx', 'Git', 'Tailwind CSS', 'Angular Material', 'TypeScript'],
-    links: { github: '#', demo: 'https://7pack.lt/' }
+    period: 'Jan 2022 – June 2022',
+    image: '',
+    badge: '1M+ Users · FinTech & Transit',
+    description:
+      'High-traffic PWA and ticketing platform for railway, bus, and launch booking alongside mobile recharge and loan management systems serving over 1M+ users.',
+    tags: ['Angular', 'NgRx', 'PWAs', 'TailwindCSS', 'Material-UI', 'TypeScript', 'Azure DevOps'],
+    links: { demo: '' }
   },
   {
-    title: 'Digital Entrepreneur Academy',
+    title: 'Digital Entrepreneur Academy & Online Exam System',
     company: 'PEN Worldwide',
-    period: 'May 2021 - Dec 2021',
-    image: 'https://placehold.co/600x400?text=Digital+Entrepreneur+Academy',
-    description: 'Platform for youth entrepreneurship and self-employment. Led a team, designed project architecture, configured CI/CD, and deployed to Linux. 10k+ users.',
-    tags: ['GitHub', 'React', 'Next.js', 'Jira', 'Microsoft SQL Server', 'Git', 'Tailwind CSS', 'Redux', 'TypeScript', '.NET-6'],
-    links: { github: '#', demo: '#' }
+    period: 'May 2021 – Dec 2021',
+    image: '',
+    badge: '10k+ Users · EdTech',
+    description:
+      'Full-stack online examination and youth entrepreneurship platform built with React, Next.js, and .NET 6 on SQL Server, deployed via automated GitHub CI/CD to Ubuntu and Nginx.',
+    tags: ['React', 'Next.js', '.NET 6', 'SQL Server', 'GitHub Actions', 'Ubuntu', 'Nginx', 'TailwindCSS'],
+    links: { demo: '' }
   },
   {
     title: '7Pack Courier (Mobile App)',
     company: 'STS Capital',
-    period: 'Jan 2021 - Jul 2021',
-    image: 'https://placehold.co/600x400?text=7Pack+Courier',
-    description: 'Android app for delivery management. Features barcode scanning, GPS tracking, messaging, and real-time location monitoring. 100+ delivery people use it.',
-    tags: ['Expo', 'Redux', 'TypeScript', 'styled-components', 'React Native'],
-    links: { github: '#', demo: '#' }
+    period: 'Jan 2021 – Jul 2021',
+    image: '',
+    badge: 'Logistics & Mobile',
+    description:
+      'Cross-platform delivery management mobile application featuring barcode scanning, real-time GPS tracking, and instant courier messaging.',
+    tags: ['React Native', 'Expo', 'Redux', 'TypeScript', 'REST APIs'],
+    links: { demo: '' }
   },
   {
-    title: 'Claims & Payment Processing System',
+    title: 'Insurance Claims, Document Management & Training Portal',
     company: 'Brain Station 23 Limited',
-    period: 'Jun 2019 - Jan 2020',
-    image: 'https://placehold.co/600x400?text=Claims+%26+Payment+Processing',
-    description: 'Insurance project for automated claims and document management using IBM FileNet. Developed UI for document upload, validation, and reactive forms.',
-    tags: ['ASP.NET Web API', 'Microsoft SQL Server', 'Git', 'Angular', 'TypeScript', 'RxJS'],
-    links: { github: '#', demo: '#' }
-  },
-  {
-    title: 'Agency Digitization',
-    company: 'Brain Station 23 Limited',
-    period: 'Oct 2018 - Jul 2019',
-    image: 'https://placehold.co/600x400?text=Agency+Digitization',
-    description: 'Admin and client portals for financial associates. Features training modules, drag-and-drop, graphical statistics, and SLA notifications.',
-    tags: ['ASP.NET Web API', 'Jira', 'Microsoft SQL Server', 'Git', 'Angular', 'TypeScript', 'RxJS'],
-    links: { github: '#', demo: '#' }
-  },
-  {
-    title: 'Eshkol ERP',
-    company: 'Projukti Next Ltd',
-    period: 'Jun 2016 - Aug 2018',
-    image: 'https://placehold.co/600x400?text=Eshkol+ERP',
-    description: 'Cloud-based ERP for educational institutes. Designed responsive UI and developed features for accounting, inventory, HR, and attendance.',
-    tags: ['Azure DevOps', 'ASP.NET Web API', 'JavaScript', 'Microsoft SQL Server', 'Git', 'AngularJS', 'C#'],
-    links: { github: '#', demo: '#' }
+    period: 'Oct 2018 – Jan 2020',
+    image: '',
+    badge: 'InsureTech',
+    description:
+      'Automated insurance claims and online document management system alongside an interactive Angular training portal with SLA tracking and analytics.',
+    tags: ['Angular', 'ASP.NET Web API', 'SQL Server', 'TypeScript', 'RxJS'],
+    links: { demo: '' }
   }
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 scroll-mt-24">
+    <section id="projects" className="py-24 px-6 portfolio-section-alt scroll-mt-24">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="text-gray-900 mb-4">Featured Projects</h2>
-            <p className="text-gray-600 max-w-xl">
-              A collection of handpicked projects that demonstrate technical complexity and design thinking.
-            </p>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full mb-4">
+            <Layers className="w-4 h-4" />
+            <span className="text-xs font-semibold uppercase tracking-wider">Portfolio Highlights</span>
           </div>
-          <a href="#" className="hidden md:block text-indigo-600 font-semibold hover:underline">View All Projects →</a>
+          <h2 className="text-gray-900 mb-4 font-bold" style={{ fontSize: '2rem' }}>
+            Featured Projects &amp; Systems
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Key enterprise platforms, cloud-native microservices, and high-scale applications delivered across finance, education, and transportation.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ delay: index * 0.08 }}
               viewport={{ once: true }}
-              className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all"
+              className="group portfolio-card overflow-hidden flex flex-col justify-between"
             >
-              <div className="aspect-video overflow-hidden" style={{
-                padding: '10px'
-              }}>
-                <ImageWithFallback
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-8">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
-                      {tag}
+              <div>
+                {project.image ? (
+                  <div className="aspect-video overflow-hidden bg-indigo-50 p-4 border-b border-gray-100">
+                    <ImageWithFallback
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="p-6 border-b border-gray-100 flex items-center justify-between"
+                    style={{
+                      background: 'linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%)',
+                    }}
+                  >
+                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-white px-3 py-1 rounded-full shadow-sm">
+                      {project.badge}
                     </span>
-                  ))}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-6">{project.description}</p>
-                <div className="flex gap-4">
-                  <a href={project.links.demo} className="flex items-center gap-1 text-sm font-semibold text-gray-900 hover:text-indigo-600">
-                    <ExternalLink className="w-4 h-4" /> Live Demo
-                  </a>
-                  <a href={project.links.github} className="flex items-center gap-1 text-sm font-semibold text-gray-900 hover:text-indigo-600">
-                    <Github className="w-4 h-4" /> Source
-                  </a>
+                    <span className="text-xs font-medium text-gray-500 flex items-center gap-1">
+                      <Calendar className="w-4 h-4 text-indigo-500" /> {project.period}
+                    </span>
+                  </div>
+                )}
+
+                <div className="p-8">
+                  <div className="flex items-center justify-between gap-2 mb-2 text-xs text-indigo-600 font-semibold">
+                    <span className="inline-flex items-center gap-1">
+                      <Building2 className="w-4 h-4" /> {project.company}
+                    </span>
+                    {project.image && (
+                      <span className="text-gray-500 font-medium">{project.period}</span>
+                    )}
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
+                  <p className="text-gray-600 mb-6 text-sm leading-relaxed">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="portfolio-pill">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
+
+              {project.links.demo && (
+                <div className="px-8 pb-6 pt-2 flex gap-4">
+                  <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700"
+                  >
+                    <ExternalLink className="w-4 h-4" /> Visit Live Platform
+                  </a>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

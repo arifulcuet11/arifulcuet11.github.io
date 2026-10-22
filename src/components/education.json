@@ -1,14 +1,14 @@
 [
   {
-    "degree": "Bachelor of Science (BSc), Computer Science & Engineering",
-    "institution": "Chittagong University of Engineering & Technology",
-    "period": "2012 - 2017",
-    "details": "Grade: 3.46"
+    "degree": "BSc in Computer Science & Engineering",
+    "institution": "Chittagong University of Engineering and Technology (CUET)",
+    "period": "2012 – 2017",
+    "details": "Graduated with a Bachelor of Science in Computer Science & Engineering (CGPA: 3.46/4.00). Focused on software engineering, algorithms, distributed systems, and database management."
   },
   {
-    "degree": "HSC, Science",
+    "degree": "Higher Secondary Certificate (HSC), Science",
     "institution": "Dhaka City College",
-    "period": "2009 - 2011",
-    "details": "Grade: 5.00"
+    "period": "2009 – 2011",
+    "details": "GPA: 5.00 / 5.00"
   }
 ]

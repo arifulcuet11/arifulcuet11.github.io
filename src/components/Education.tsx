@@ -1,32 +1,111 @@
 import React from 'react';
-import { GraduationCap, Calendar } from 'lucide-react';
+import { motion } from 'motion/react';
+import { GraduationCap, Calendar, Award, CheckCircle2 } from 'lucide-react';
 import education from './education.json';
+
+const certifications = [
+  {
+    title: 'Microsoft Entra ID for Developers',
+    issuer: 'Microsoft / Enterprise Identity',
+    category: 'Identity & Security'
+  },
+  {
+    title: 'ASP.NET Core Advanced Security',
+    issuer: '.NET Ecosystem',
+    category: 'Backend Security'
+  },
+  {
+    title: 'Angular (Intermediate)',
+    issuer: 'HackerRank / Frontend',
+    category: 'Frontend Engineering'
+  },
+  {
+    title: 'Docker Compose',
+    issuer: 'Containerization & DevOps',
+    category: 'Cloud & Containers'
+  },
+  {
+    title: 'GitHub',
+    issuer: 'CI/CD & Version Control',
+    category: 'DevOps Automation'
+  }
+];
 
 export function Education() {
   return (
-    <section id="education" className="py-24 bg-white px-6">
+    <section id="education" className="py-24 bg-white px-6 scroll-mt-24">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-gray-900 text-center mb-16">Education</h2>
-        <div className="space-y-12">
-          {(education as Array<any>).map((edu, index) => (
-            <div key={index} className="relative pl-8 border-l-2 border-indigo-100 last:border-0">
-              <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-50" />
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                    <GraduationCap className="w-5 h-5 text-indigo-600" /> {edu.degree}
-                  </h3>
-                  <div className="flex items-center gap-2 text-indigo-600 font-medium">
-                    {edu.institution}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full mb-4">
+            <GraduationCap className="w-4 h-4" />
+            <span className="text-xs font-semibold uppercase tracking-wider">Credentials</span>
+          </div>
+          <h2 className="text-gray-900 mb-4 font-bold" style={{ fontSize: '2rem' }}>
+            Education &amp; Certifications
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Academic foundation in Computer Science &amp; Engineering paired with industry certifications in cloud identity, security, and DevOps.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Academic Education */}
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <GraduationCap className="w-6 h-6 text-indigo-600" /> Academic Background
+            </h3>
+            <div className="space-y-6">
+              {(education as Array<{ degree: string; institution: string; period: string; details: string }>).map((edu, index) => (
+                <motion.div
+                  key={edu.degree}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="portfolio-card p-6"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span className="inline-flex items-center gap-2 text-indigo-600 text-xs font-semibold bg-indigo-50 px-3 py-1 rounded-full">
+                      <Calendar className="w-4 h-4" /> {edu.period}
+                    </span>
                   </div>
-                </div>
-                <div className="flex items-center gap-2 text-gray-500 text-sm mt-2 md:mt-0 bg-white px-3 py-1 rounded-full shadow-sm">
-                  <Calendar className="w-4 h-4" /> {edu.period}
-                </div>
-              </div>
-              <p className="text-gray-600 mb-4">{edu.details}</p>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{edu.degree}</h4>
+                  <p className="text-indigo-600 font-semibold text-sm mb-3">{edu.institution}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{edu.details}</p>
+                </motion.div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Certifications */}
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <Award className="w-6 h-6 text-indigo-600" /> Professional Certifications
+            </h3>
+            <div className="space-y-4">
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={cert.title}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.08 }}
+                  viewport={{ once: true }}
+                  className="portfolio-card p-6 flex items-center justify-between gap-4"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-indigo-50 rounded-xl text-indigo-600">
+                      <CheckCircle2 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-base">{cert.title}</h4>
+                      <p className="text-gray-500 text-xs mt-1">{cert.issuer}</p>
+                    </div>
+                  </div>
+                  <span className="portfolio-pill">{cert.category}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,127 +1,171 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const experiences = [
   {
     role: 'Associate Lead – Software Development',
     company: 'Kloudynet Technologies',
-    location: 'WP. Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia (Remote)',
-    period: 'Aug 2025 - Present · 6 mos',
-    description: 'Led development and deployment of cloud-native microservices using .NET, React, and SQL Server. Deployed scalable solutions on Azure AKS using Kubernetes, Docker, and Helm. Built CI/CD pipelines with Azure DevOps for automated deployments. Collaborated with DevOps, QA, and Product teams for successful project delivery. Integrated SCIM for secure user provisioning and identity management. Applied best practices in microservice design, API gateways, and service discovery. Conducted code reviews and enforced clean architecture and SOLID principles. Mentored team members and supported technical decision-making. Participated in Agile ceremonies and sprint planning. Monitored and improved app performance with Azure Monitor and App Insights.',
-    achievements: [
-      '.NET Core', 'React', 'Azure', 'Microservices', 'Azure Kubernetes Service (AKS)', 'Docker', 'SCIM'
+    location: 'Kuala Lumpur',
+    period: 'Aug 2025 – Current',
+    bullets: [
+      'Lead development and deployment of cloud-native microservices using .NET, React and SQL Server on Azure AKS with Docker and Helm; integrated SCIM for automated user provisioning.',
+      'Built automated GitHub Actions CI/CD pipelines that build Docker images and deploy to Azure Container Apps and a private-network AKS cluster.',
+      'Monitor and tune production performance with Azure Monitor and Application Insights.',
+      'Mentor engineers, run code reviews enforcing clean architecture and SOLID, and drive technical decisions.'
+    ],
+    tags: [
+      '.NET Core', 'React', 'Azure AKS (Private Cluster)', 'Azure Container Apps', 'Docker', 'Helm', 'GitHub Actions', 'SCIM', 'SQL Server', 'Azure Monitor', 'Application Insights'
     ]
   },
   {
     role: 'Senior Full Stack Engineer',
     company: 'Kloudynet Technologies',
-    location: 'Kuala Lumpur, Malaysia',
-    period: 'Jun 2022 - Aug 2025 · 3 yrs 3 mos',
-    description: 'Developed and maintained microservices using .NET, ensuring high scalability and performance in a cloud-native environment. Integrated Microsoft SCIM for automated user provisioning and identity management across enterprise systems. Designed and deployed cloud solutions using Azure services (App Services, Functions, Cosmos DB, SQL Server, Logic App, EntraID) to optimize performance and cost efficiency. Built responsive front-end applications with React, seamlessly connecting to RESTful APIs and microservices. Developed a Microsoft Teams app to streamline internal workflows and improve team collaboration. Implemented Hangfire for reliable background job scheduling and execution. Used MassTransit with RabbitMQ for event-driven communication between microservices, ensuring decoupled and resilient architecture. Containerized applications using Docker for consistent deployments across development and production environments. Managed databases (Cosmos DB, SQL Server) for high availability, performance, and data integrity.',
-    achievements: [
-      '.NET Core', 'React.js', 'Azure', 'Microsoft SQL Server', 'Docker', 'Azure Cosmos DB', 'RabbitMQ', 'Microservices', 'Entra', 'SCIM'
+    location: 'Kuala Lumpur',
+    period: 'June 2022 – Aug 2025',
+    bullets: [
+      'Built scalable .NET microservices with event-driven messaging using MassTransit and RabbitMQ.',
+      'Integrated Microsoft SCIM and Entra ID for automated identity management across enterprise systems.',
+      'Designed Azure solutions (App Services, Functions, Cosmos DB, SQL Server, Logic Apps) for performance and cost efficiency, and built a Microsoft Teams app.'
+    ],
+    tags: [
+      '.NET Core', 'Microservices', 'MassTransit', 'RabbitMQ', 'SCIM', 'Entra ID', 'Azure App Services', 'Azure Functions', 'Cosmos DB', 'SQL Server', 'Logic Apps', 'Microsoft Teams App', 'React'
     ]
   },
   {
-    role: 'Senior Frontend Developer',
+    role: 'Senior Frontend Developer (Part-time)',
     company: 'FairPattern.com',
-    location: 'Dhaka, Bangladesh (Remote)',
-    period: 'Jan 2022 - Jun 2022 · 6 mos',
-    description: 'Developed an online ticket booking system for buses and launches, enhancing user experience. Implemented a mobile recharge application, improving accessibility for customers. Created an advanced loan system for top companies, streamlining financial processes.',
-    achievements: [
-      'RxJS', 'Angular Material', 'Tailwind CSS', 'NgRx', 'TypeScript', 'PWAs', 'Angular-11'
+    location: 'Dhaka',
+    period: 'Jan 2022 – June 2022',
+    bullets: [
+      'Built bus and launch ticket booking, mobile recharge, and loan management systems for major clients.'
+    ],
+    tags: [
+      'Angular', 'TypeScript', 'NgRx', 'RxJS', 'TailwindCSS', 'Material-UI', 'PWA'
     ]
   },
   {
-    role: 'Software Developer',
+    role: 'Software Developer (Remote)',
     company: 'STS Capital',
-    location: 'Vilniaus, Lithuania (Remote)',
-    period: 'Feb 2020 - Jun 2022 · 2 yrs 5 mos',
-    description: 'Developed reusable custom components for an ERP project, enhancing efficiency and scalability. Migrated older AngularJS code to newer Angular versions, improving performance and user experience. Integrated third-party APIs and NPM libraries, expanding functionality and connectivity within the system.',
-    achievements: [
-      'ASP.NET', 'Microsoft Azure', 'Azure Cosmos DB', 'Azure Virtual Machines', 'ASP.NET Web API', 'Azure Service Bus', 'React.js', 'Azure DevOps Server', 'Azure DevOps', 'Azure Active Directory', 'Microsoft SQL Server', 'Redux.js', 'Docker', 'TypeScript', 'Angular', 'Microservices', 'Azure Key Vault', '.NET Core', '.NET Framework', 'Azure Functions', 'React Native', 'Azure Logic Apps'
+    location: 'Vilnius, Lithuania',
+    period: 'Feb 2020 – June 2022',
+    bullets: [
+      'Built reusable ERP components and migrated legacy AngularJS code to modern Angular.'
+    ],
+    tags: [
+      'Angular', 'AngularJS Migration', 'TypeScript', '.NET Core', 'Azure', 'SQL Server', 'Cosmos DB', 'React Native'
     ]
   },
   {
-    role: 'Full Stack Engineer',
+    role: 'Full Stack Engineer (Part-time)',
     company: 'PEN Worldwide',
-    location: 'Essen, Germany (Remote)',
-    period: 'May 2021 - Dec 2021 · 8 mos',
-    description: 'Developed frontend using React.js and Next.js for an online exam system. Implemented backend APIs with .Net-6 and managed SQL Server 2019 database. Deployed projects to Ubuntu server with Nginx for efficient performance. Established GitHub CI/CD pipelines for streamlined project management.',
-    achievements: [
-      'Redux', 'Next.js', 'Tailwind CSS', 'React.js', 'Git', 'Microsoft SQL Server', 'Jira', '.NET Core', 'GitHub'
+    location: 'Essen, Germany',
+    period: 'May 2021 – Dec 2021',
+    bullets: [
+      'Built an online exam system with React, Next.js and .NET 6 on SQL Server, deployed via GitHub CI/CD to Ubuntu and Nginx.'
+    ],
+    tags: [
+      'React', 'Next.js', '.NET 6', 'SQL Server', 'GitHub Actions CI/CD', 'Ubuntu', 'Nginx', 'TailwindCSS'
     ]
   },
   {
-    role: 'Technical Consultant',
+    role: 'Technical Consultant (Remote, Part-time)',
     company: 'Sheba.xyz',
-    location: 'Bangladesh (Remote)',
-    period: 'Apr 2020 - Jul 2020 · 4 mos',
-    description: 'Provided technical consultation on frontend development for Sheba.xyz in Bangladesh. Optimized website load times and application performance to enhance user experience. Enhanced Angular components for improved efficiency and seamless user interaction.',
-    achievements: [
-      'TypeScript', 'Angular', 'GitHub', 'Jira'
+    location: 'Bangladesh',
+    period: 'April 2020 – July 2020',
+    bullets: [
+      'Improved Angular component efficiency and reduced website load times.'
+    ],
+    tags: [
+      'Angular', 'TypeScript', 'Performance Optimization', 'Frontend Architecture'
     ]
   },
   {
     role: 'Software Engineer',
     company: 'Brain Station 23 Limited',
-    location: 'Dhaka, Bangladesh (On-site)',
-    period: 'Oct 2018 - Jan 2020 · 1 yr 4 mos',
-    description: 'Developed custom training module using Angular-6, JavaScript, and jQuery for enhanced user experience. Implemented online documents management system for an insurance company, improving efficiency. Worked on reactive form validation to ensure data accuracy and integrity. Followed agile methodology to deliver projects efficiently.',
-    achievements: [
-      'TypeScript', '.NET Core'
+    location: 'Dhaka',
+    period: 'Oct 2018 – Jan 2020',
+    bullets: [
+      'Built an Angular training module and an online document management system for an insurance company.'
+    ],
+    tags: [
+      'Angular', 'TypeScript', 'ASP.NET Web API', 'SQL Server', 'RxJS'
     ]
   },
   {
     role: 'Software Engineer',
     company: 'Projukti Next Ltd',
-    location: 'Dhaka, Bangladesh (On-site)',
-    period: 'May 2017 - Sep 2018 · 1 yr 5 mos',
-    description: 'Optimized JavaScript code and developed inventory, online admission, accounting, and attendance modules using Angularjs, jQuery, and Cordova. Integrated biometric attendance device and worked with .NET, Firebase, MySQL, and SQL Server technologies.',
-    achievements: [
-      'TypeScript'
+    location: 'Dhaka',
+    period: 'May 2017 – Sep 2018',
+    bullets: [
+      'Built inventory, admission, accounting and attendance modules with AngularJS and Cordova; integrated biometric devices.'
+    ],
+    tags: [
+      'AngularJS', 'Cordova', '.NET', 'SQL Server', 'MySQL', 'Biometric Integration'
     ]
   }
 ];
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 bg-gray-50 px-6">
+    <section id="experience" className="py-24 bg-white px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-gray-900 text-center mb-16">Work Experience</h2>
-        
-        <div className="space-y-12">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full mb-4">
+            <Briefcase className="w-4 h-4" />
+            <span className="text-xs font-semibold uppercase tracking-wider">Career Journey</span>
+          </div>
+          <h2 className="text-gray-900 mb-4 font-bold" style={{ fontSize: '2rem' }}>
+            Work Experience
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            9+ years of delivering enterprise-grade cloud platforms, identity integrations, and scalable web applications across global teams.
+          </p>
+        </div>
+
+        <div className="space-y-6 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
+              key={`${exp.company}-${exp.role}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.06 }}
               viewport={{ once: true }}
-              className="relative pl-8 border-l-2 border-indigo-100 last:border-0"
+              className="relative pl-8 border-l-2 border-indigo-100"
             >
               <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-50" />
-              
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">{exp.role}</h3>
-                  <div className="flex items-center gap-2 text-indigo-600 font-medium">
-                    <Briefcase className="w-4 h-4" /> {exp.company}
+
+              <div className="portfolio-card p-6 md:p-8">
+                <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">{exp.role}</h3>
+                    <div className="flex flex-wrap items-center gap-4 text-sm mt-2">
+                      <span className="inline-flex items-center gap-1 text-indigo-600 font-semibold">
+                        <Briefcase className="w-4 h-4" /> {exp.company}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-gray-500">
+                        <MapPin className="w-4 h-4" /> {exp.location}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-semibold bg-indigo-50 px-3 py-1 rounded-full self-start">
+                    <Calendar className="w-4 h-4" /> {exp.period}
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-gray-500 text-sm mt-2 md:mt-0 bg-white px-3 py-1 rounded-full shadow-sm">
-                  <Calendar className="w-4 h-4" /> {exp.period}
+
+                <ul className="portfolio-bullet-list mb-6">
+                  {exp.bullets.map((bullet, i) => (
+                    <li key={i}>{bullet}</li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-2">
+                  {exp.tags.map((item) => (
+                    <span key={item} className="portfolio-pill">
+                      {item}
+                    </span>
+                  ))}
                 </div>
-              </div>
-              
-              <p className="text-gray-600 mb-4">{exp.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {exp.achievements.map((item, i) => (
-                  <span key={i} className="text-xs bg-white border border-gray-100 text-gray-500 px-3 py-1 rounded-lg">
-                    {item}
-                  </span>
-                ))}
               </div>
             </motion.div>
           ))}
