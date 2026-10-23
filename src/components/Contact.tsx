@@ -1,22 +1,56 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Send, Mail, MapPin, Phone, Linkedin, Github, CheckCircle } from 'lucide-react';
+import { Send, Mail, MapPin, Phone, Linkedin, Github, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import aboutData from './about.json';
 
 export function Contact() {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [message, setMessage] = React.useState('');
-  const [submitted, setSubmitted] = React.useState(false);
+  const [status, setStatus] = React.useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = React.useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${name || 'Visitor'}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-    window.location.href = `mailto:${aboutData.email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setStatus('sending');
+    setStatusMessage('');
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${aboutData.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `Portfolio Inquiry from ${name || 'Visitor'}`,
+          _template: 'table',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && (data.success === 'true' || data.success === true)) {
+        setStatus('success');
+        setStatusMessage('Thank you! Your message has been sent directly to my inbox.');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setStatus('error');
+        setStatusMessage(
+          data.message || 'Unable to send message right now. Please email me directly at ' + aboutData.email
+        );
+      }
+    } catch {
+      setStatus('error');
+      setStatusMessage(
+        'Network error while sending message. Please email me directly at ' + aboutData.email
+      );
+    }
   };
 
   return (
@@ -106,9 +140,11 @@ export function Contact() {
                   <label className="block text-gray-700 text-sm font-semibold mb-2">Name</label>
                   <input
                     type="text"
+                    name="name"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    disabled={status === 'sending'}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
                     placeholder="Your Name"
                   />
@@ -117,9 +153,11 @@ export function Contact() {
                   <label className="block text-gray-700 text-sm font-semibold mb-2">Email</label>
                   <input
                     type="email"
+                    name="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    disabled={status === 'sending'}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
                     placeholder="you@company.com"
                   />
@@ -128,20 +166,38 @@ export function Contact() {
                   <label className="block text-gray-700 text-sm font-semibold mb-2">Message</label>
                   <textarea
                     rows={4}
+                    name="message"
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
+                    disabled={status === 'sending'}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
                     placeholder="Tell me about your project or opportunity..."
                   />
                 </div>
+
+                {status === 'success' && (
+                  <div className="p-4 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm font-medium flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-indigo-600" />
+                    <span>{statusMessage}</span>
+                  </div>
+                )}
+
+                {status === 'error' && (
+                  <div className="p-4 rounded-xl bg-gray-100 border border-gray-200 text-rose-500 text-sm font-medium flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-rose-500" />
+                    <span>{statusMessage}</span>
+                  </div>
+                )}
+
                 <button
                   type="submit"
+                  disabled={status === 'sending'}
                   className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100"
                 >
-                  {submitted ? (
+                  {status === 'sending' ? (
                     <>
-                      <CheckCircle className="w-4 h-4" /> Opening Email Client...
+                      <Loader2 className="w-4 h-4" /> Sending Message...
                     </>
                   ) : (
                     <>
