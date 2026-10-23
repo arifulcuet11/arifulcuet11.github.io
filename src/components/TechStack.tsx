@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Cloud, Workflow, Server, Layout, ShieldCheck, Code2 } from 'lucide-react';
+import { Cloud, Workflow, Server, Layout, ShieldCheck, Code2, Network } from 'lucide-react';
 import aboutData from './about.json';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Cloud,
+  Network,
   Workflow,
   Server,
   Layout,
@@ -24,7 +25,7 @@ export function TechStack() {
             Core Skills &amp; Cloud Ecosystem
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Specialized in Azure cloud-native engineering, Kubernetes (AKS), enterprise identity integration, and full-stack microservices.
+            Specialized in Azure, AWS, and on-premises infrastructure, Kubernetes (AKS), Infrastructure as Code (Bicep, Terraform), private networking, and enterprise SCIM/Entra ID integration.
           </p>
         </div>
 

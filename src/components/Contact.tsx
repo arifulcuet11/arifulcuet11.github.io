@@ -33,7 +33,7 @@ export function Contact() {
                 Let&apos;s build scalable cloud solutions together
               </h2>
               <p className="text-indigo-200 mb-10 text-base leading-relaxed">
-                Looking for an Associate Lead or Azure Cloud &amp; AKS specialist to architect microservices, automate CI/CD, or integrate enterprise identity (SCIM / Entra ID)? Reach out directly.
+                Looking for an Associate Lead or Multi-Cloud (Azure, AWS &amp; On-Premises) specialist to architect microservices, automate IaC (Bicep / Terraform) &amp; CI/CD, or integrate enterprise identity (SCIM / Entra ID)? Reach out directly.
               </p>
 
               <div className="space-y-6">

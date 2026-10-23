@@ -1,29 +1,39 @@
 {
   "name": "Ariful Islam",
-  "headline": "Associate Lead – Software Development | Azure Cloud & Kubernetes (AKS) | .NET · React",
+  "headline": "Associate Lead – Software Development | Azure · AWS · On-Premises | Kubernetes (AKS) | .NET · React",
   "location": "Dhaka, Bangladesh",
   "phone": "+880 1675-908553",
   "email": "arifulcuet52@gmail.com",
   "linkedin": "https://www.linkedin.com/in/ariful11",
   "github": "https://github.com/arifulcuet11",
   "portfolio": "https://arifulcuet11.github.io",
-  "about": "Azure cloud engineer and Associate Lead with 9+ years building cloud-native systems in .NET, React and Angular. Designs, deploys and runs microservices on Azure, including private-network AKS clusters, Container Apps, Functions and Cosmos DB, with automated GitHub Actions CI/CD, Helm and Azure Monitor. Specialist in SCIM and Entra ID identity integration, leading teams that deliver secure, scalable platforms across finance, education and transportation.",
+  "about": "Cloud engineer and Associate Lead with 9+ years building cloud-native systems in .NET, React and Angular. Designs, deploys and runs microservices on Azure (private AKS, Container Apps), AWS (ECS Fargate, RDS) and customer on-premises data centres, using infrastructure as code (Bicep, Terraform), GitHub Actions CI/CD and private networking. Specialist in SCIM and Entra ID identity integration, leading teams that deliver secure, scalable platforms across finance, education and transportation.",
   "stats": [
     { "value": "9+", "label": "Years Experience" },
-    { "value": "AKS & Azure", "label": "Cloud-Native Specialist" },
-    { "value": "SCIM & Entra ID", "label": "Enterprise Identity" },
-    { "value": "1M+", "label": "Users Impacted" }
+    { "value": "Azure · AWS · On-Prem", "label": "Multi-Cloud & Hybrid" },
+    { "value": "Bicep & Terraform", "label": "Infrastructure as Code" },
+    { "value": "SCIM & Entra ID", "label": "Enterprise Identity" }
   ],
   "skills": [
     {
       "category": "Cloud (Azure)",
       "icon": "Cloud",
-      "items": "AKS (private clusters), Container Apps, App Services, Functions, Logic Apps, Cosmos DB, Entra ID, Azure Monitor, Application Insights"
+      "items": "AKS (private clusters), Container Apps, App Services, Functions, Logic Apps, Cosmos DB, Entra ID, Key Vault, App Configuration, Azure Monitor"
     },
     {
-      "category": "DevOps & Automation",
+      "category": "Cloud (AWS)",
+      "icon": "Cloud",
+      "items": "ECS Fargate, RDS, VPC, ALB, WAF, Secrets Manager, KMS, IAM, EFS, CloudWatch"
+    },
+    {
+      "category": "Networking",
+      "icon": "Network",
+      "items": "VNet/VPC design, subnets and routing, NAT, private endpoints and private DNS, security groups, load balancers, NGINX reverse proxy, TLS, firewall rules"
+    },
+    {
+      "category": "DevOps & IaC",
       "icon": "Workflow",
-      "items": "Kubernetes, Docker, Helm, GitHub Actions, Azure DevOps, CI/CD automation, n8n workflow automation"
+      "items": "Terraform, Bicep, Kubernetes, Docker / Compose, Helm, GitHub Actions (OIDC, self-hosted runners), Azure DevOps, n8n"
     },
     {
       "category": "Backend",

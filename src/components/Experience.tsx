@@ -9,13 +9,15 @@ const experiences = [
     location: 'Kuala Lumpur',
     period: 'Aug 2025 – Current',
     bullets: [
-      'Lead development and deployment of cloud-native microservices using .NET, React and SQL Server on Azure AKS with Docker and Helm; integrated SCIM for automated user provisioning.',
-      'Built automated GitHub Actions CI/CD pipelines that build Docker images and deploy to Azure Container Apps and a private-network AKS cluster.',
-      'Monitor and tune production performance with Azure Monitor and Application Insights.',
-      'Mentor engineers, run code reviews enforcing clean architecture and SOLID, and drive technical decisions.'
+      'Lead development and deployment of a multi-tenant SCIM identity platform (.NET, React, SQL Server microservices), delivered to Azure, AWS and customer on-premises data centres from one set of container images.',
+      'Azure: Bicep and GitHub Actions (OIDC) pipelines deploying to Container Apps and a private-network AKS cluster with Helm; VNets, private endpoints and private DNS, Key Vault and App Configuration, with an isolated environment per client.',
+      'AWS: Terraform-provisioned VPC with public and private subnets, NAT gateway, route tables, security groups and VPC endpoints; ECS Fargate behind an Application Load Balancer and WAF; RDS for SQL Server, Secrets Manager, KMS, and CloudWatch alarms with SNS.',
+      "On-premises / private cloud: Docker Compose on customer VMs behind an NGINX reverse proxy (TLS, WebSockets, subnet allow-lists), an outbound-only self-hosted GitHub runner, the customer's SQL Server, and secrets pulled from Azure Key Vault at deploy time.",
+      'Enforced least-privilege database access on all three platforms with re-runnable PowerShell, Bash and Python scripts; monitor production with Azure Monitor and Application Insights.',
+      'Mentor engineers, run code reviews (clean architecture, SOLID), and write client onboarding runbooks and customer setup guides.'
     ],
     tags: [
-      '.NET Core', 'React', 'Azure AKS (Private Cluster)', 'Azure Container Apps', 'Docker', 'Helm', 'GitHub Actions', 'SCIM', 'SQL Server', 'Azure Monitor', 'Application Insights'
+      '.NET Core', 'React', 'SQL Server', 'SCIM', 'Azure AKS (Private)', 'Container Apps', 'Bicep', 'AWS ECS Fargate', 'AWS RDS', 'Terraform', 'VPC / VNet', 'Helm', 'Docker Compose', 'NGINX', 'GitHub Actions (OIDC)', 'Key Vault', 'Secrets Manager'
     ]
   },
   {
@@ -45,18 +47,6 @@ const experiences = [
     ]
   },
   {
-    role: 'Software Developer (Remote)',
-    company: 'STS Capital',
-    location: 'Vilnius, Lithuania',
-    period: 'Feb 2020 – June 2022',
-    bullets: [
-      'Built reusable ERP components and migrated legacy AngularJS code to modern Angular.'
-    ],
-    tags: [
-      'Angular', 'AngularJS Migration', 'TypeScript', '.NET Core', 'Azure', 'SQL Server', 'Cosmos DB', 'React Native'
-    ]
-  },
-  {
     role: 'Full Stack Engineer (Part-time)',
     company: 'PEN Worldwide',
     location: 'Essen, Germany',
@@ -69,10 +59,22 @@ const experiences = [
     ]
   },
   {
+    role: 'Software Developer (Remote)',
+    company: 'STS Capital',
+    location: 'Vilnius, Lithuania',
+    period: 'Feb 2020 – June 2022',
+    bullets: [
+      'Built reusable ERP components and migrated legacy AngularJS code to modern Angular.'
+    ],
+    tags: [
+      'Angular', 'AngularJS Migration', 'TypeScript', '.NET Core', 'Azure', 'SQL Server', 'Cosmos DB', 'React Native'
+    ]
+  },
+  {
     role: 'Technical Consultant (Remote, Part-time)',
     company: 'Sheba.xyz',
     location: 'Bangladesh',
-    period: 'April 2020 – July 2020',
+    period: 'Apr 2020 – Jul 2020',
     bullets: [
       'Improved Angular component efficiency and reduced website load times.'
     ],

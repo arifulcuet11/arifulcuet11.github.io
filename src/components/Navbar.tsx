@@ -40,7 +40,7 @@ export function Navbar() {
               {aboutData.name}
             </span>
             <span className="text-xs text-indigo-600 font-medium block">
-              Cloud & AKS Engineer
+              Azure &middot; AWS &middot; AKS Lead
             </span>
           </div>
         </a>

@@ -29,7 +29,7 @@ export function Hero() {
             </h1>
 
             <p className="text-indigo-600 font-semibold text-lg mb-4">
-              Azure Cloud &amp; Kubernetes (AKS) &nbsp;|&nbsp; .NET &middot; React &middot; Microservices
+              Azure &middot; AWS &middot; On-Premises &nbsp;|&nbsp; Kubernetes (AKS) &nbsp;|&nbsp; .NET &middot; React
             </p>
 
             <p className="text-gray-600 mb-6 max-w-2xl leading-relaxed text-base">
@@ -97,8 +97,8 @@ export function Hero() {
                   <Cloud className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 font-medium">Cloud Architecture</p>
-                  <p className="text-sm font-bold text-gray-900">Azure AKS &amp; Container Apps</p>
+                  <p className="text-xs text-gray-500 font-medium">Multi-Cloud &amp; Hybrid</p>
+                  <p className="text-sm font-bold text-gray-900">Azure, AWS &amp; On-Prem</p>
                 </div>
               </div>
               <div className="portfolio-card p-4 flex items-center gap-3">

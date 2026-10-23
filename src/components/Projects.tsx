@@ -1,25 +1,22 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ExternalLink, Layers, Building2, Calendar } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Cloud-Native Microservices & SCIM Identity Platform',
+    title: 'Multi-Tenant SCIM Identity Platform (Azure, AWS & On-Premises)',
     company: 'Kloudynet Technologies',
     period: '2022 – Present',
-    image: '',
-    badge: 'Enterprise Cloud & Identity',
+    badge: 'Multi-Cloud & Enterprise Identity',
     description:
-      'Designed and deployed cloud-native .NET & React microservices on private-network Azure AKS clusters and Container Apps using Helm and GitHub Actions CI/CD. Integrated Microsoft SCIM & Entra ID for automated enterprise user provisioning and event-driven messaging via MassTransit & RabbitMQ.',
-    tags: ['.NET Core', 'React', 'Azure AKS', 'Container Apps', 'SCIM', 'Entra ID', 'Helm', 'GitHub Actions', 'MassTransit', 'RabbitMQ'],
+      'Designed and deployed a multi-tenant SCIM & Entra ID identity platform (.NET, React, SQL Server microservices) delivered to Azure (private AKS, Container Apps via Bicep & Helm), AWS (ECS Fargate, RDS, ALB/WAF via Terraform), and customer on-premises VMs (Docker Compose behind NGINX) from one set of container images.',
+    tags: ['.NET Core', 'React', 'SCIM', 'Entra ID', 'Azure AKS', 'AWS ECS Fargate', 'Bicep', 'Terraform', 'Helm', 'Docker Compose', 'GitHub Actions (OIDC)', 'MassTransit', 'RabbitMQ'],
     links: { demo: '' }
   },
   {
     title: '7Pack ERP',
     company: 'STS Capital',
     period: 'Feb 2020 – June 2022',
-    image: '7pack.png',
     badge: 'Enterprise ERP',
     description:
       'Comprehensive ERP platform for 7pack.lt integrating sales, marketing, orders, purchasing inventory, finance, HR, delivery planning, and reusable modern Angular components.',
@@ -30,7 +27,6 @@ const projects = [
     title: 'Rail Sheba & Ticketing Systems (PWA)',
     company: 'FairPattern.com',
     period: 'Jan 2022 – June 2022',
-    image: '',
     badge: '1M+ Users · FinTech & Transit',
     description:
       'High-traffic PWA and ticketing platform for railway, bus, and launch booking alongside mobile recharge and loan management systems serving over 1M+ users.',
@@ -41,7 +37,6 @@ const projects = [
     title: 'Digital Entrepreneur Academy & Online Exam System',
     company: 'PEN Worldwide',
     period: 'May 2021 – Dec 2021',
-    image: '',
     badge: '10k+ Users · EdTech',
     description:
       'Full-stack online examination and youth entrepreneurship platform built with React, Next.js, and .NET 6 on SQL Server, deployed via automated GitHub CI/CD to Ubuntu and Nginx.',
@@ -52,7 +47,6 @@ const projects = [
     title: '7Pack Courier (Mobile App)',
     company: 'STS Capital',
     period: 'Jan 2021 – Jul 2021',
-    image: '',
     badge: 'Logistics & Mobile',
     description:
       'Cross-platform delivery management mobile application featuring barcode scanning, real-time GPS tracking, and instant courier messaging.',
@@ -63,7 +57,6 @@ const projects = [
     title: 'Insurance Claims, Document Management & Training Portal',
     company: 'Brain Station 23 Limited',
     period: 'Oct 2018 – Jan 2020',
-    image: '',
     badge: 'InsureTech',
     description:
       'Automated insurance claims and online document management system alongside an interactive Angular training portal with SLA tracking and analytics.',
@@ -100,38 +93,25 @@ export function Projects() {
               className="group portfolio-card overflow-hidden flex flex-col justify-between"
             >
               <div>
-                {project.image ? (
-                  <div className="aspect-video overflow-hidden bg-indigo-50 p-4 border-b border-gray-100">
-                    <ImageWithFallback
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                ) : (
-                  <div
-                    className="p-6 border-b border-gray-100 flex items-center justify-between"
-                    style={{
-                      background: 'linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%)',
-                    }}
-                  >
-                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-white px-3 py-1 rounded-full shadow-sm">
-                      {project.badge}
-                    </span>
-                    <span className="text-xs font-medium text-gray-500 flex items-center gap-1">
-                      <Calendar className="w-4 h-4 text-indigo-500" /> {project.period}
-                    </span>
-                  </div>
-                )}
+                <div
+                  className="p-6 border-b border-gray-100 flex items-center justify-between"
+                  style={{
+                    background: 'linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%)',
+                  }}
+                >
+                  <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-white px-3 py-1 rounded-full shadow-sm">
+                    {project.badge}
+                  </span>
+                  <span className="text-xs font-medium text-gray-500 flex items-center gap-1">
+                    <Calendar className="w-4 h-4 text-indigo-500" /> {project.period}
+                  </span>
+                </div>
 
                 <div className="p-8">
                   <div className="flex items-center justify-between gap-2 mb-2 text-xs text-indigo-600 font-semibold">
                     <span className="inline-flex items-center gap-1">
                       <Building2 className="w-4 h-4" /> {project.company}
                     </span>
-                    {project.image && (
-                      <span className="text-gray-500 font-medium">{project.period}</span>
-                    )}
                   </div>
 
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
