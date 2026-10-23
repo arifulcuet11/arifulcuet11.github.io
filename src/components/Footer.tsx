@@ -6,11 +6,11 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 px-6 border-t border-gray-100 bg-gray-50">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="py-12 px-4 md:px-6 border-t border-gray-100 bg-gray-50">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
         <div className="flex flex-col items-center md:items-start gap-2">
           <p className="text-gray-900 font-bold text-xl">{aboutData.name}</p>
-          <p className="text-gray-500 text-sm">{aboutData.headline}</p>
+          <p className="text-gray-500 text-xs md:text-sm max-w-md">{aboutData.headline}</p>
         </div>
 
         <div className="flex gap-4">

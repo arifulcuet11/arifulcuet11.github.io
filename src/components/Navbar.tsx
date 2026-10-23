@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Github, Linkedin, Mail, Code2, FileDown, Menu, X } from 'lucide-react';
 import aboutData from './about.json';
 
@@ -23,14 +22,12 @@ export function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4 border-b border-gray-100' : 'bg-white/80 backdrop-blur-md py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center gap-2">
         <a href="#hero" className="flex items-center gap-2">
           <div className="p-2 bg-indigo-50 rounded-xl">
             <Code2 className="w-6 h-6 text-indigo-600" />
@@ -39,8 +36,8 @@ export function Navbar() {
             <span className="font-bold text-gray-900 tracking-tight text-lg block" style={{ lineHeight: 1.1 }}>
               {aboutData.name}
             </span>
-            <span className="text-xs text-indigo-600 font-medium block">
-              Azure &middot; AWS &middot; AKS Lead
+            <span className="text-xs text-indigo-600 font-medium hidden md:block">
+              Associate Lead – Software Development | Azure · AWS · On-Premises | Kubernetes (AKS) | .NET · React
             </span>
           </div>
         </a>
@@ -128,6 +125,6 @@ export function Navbar() {
           </div>
         </div>
       )}
-    </motion.nav>
+    </nav>
   );
 }

@@ -1,20 +1,15 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { ChevronRight, Terminal, FileDown, MapPin, Mail, Phone, Cloud, ShieldCheck, Layers } from 'lucide-react';
+import { ChevronRight, Terminal, FileDown, MapPin, Mail, Phone, Cloud, ShieldCheck } from 'lucide-react';
 import aboutData from './about.json';
 
 export function Hero() {
   return (
-    <section id="hero" className="pt-32 pb-20 px-6 relative overflow-hidden portfolio-hero-bg">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full mb-6 border border-indigo-100">
+    <section id="hero" className="pt-32 pb-20 px-4 md:px-6 relative overflow-hidden portfolio-hero-bg">
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="w-full">
+            <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full mb-4 border border-indigo-100 max-w-full">
               <Terminal className="w-4 h-4 text-indigo-600" />
               <span className="text-xs font-semibold uppercase tracking-wider">
                 Associate Lead – Software Development
@@ -22,21 +17,21 @@ export function Hero() {
             </div>
 
             <h1
-              className="text-gray-900 mb-4 font-bold tracking-tight"
-              style={{ fontSize: 'clamp(2.25rem, 4vw, 3.5rem)', lineHeight: 1.15 }}
+              className="text-gray-900 mb-3 font-bold tracking-tight"
+              style={{ fontSize: 'clamp(1.85rem, 4vw, 3.25rem)', lineHeight: 1.15 }}
             >
               Hi, I&apos;m <span className="portfolio-gradient-text">{aboutData.name}</span>
             </h1>
 
-            <p className="text-indigo-600 font-semibold text-lg mb-4">
-              Azure &middot; AWS &middot; On-Premises &nbsp;|&nbsp; Kubernetes (AKS) &nbsp;|&nbsp; .NET &middot; React
+            <p className="text-indigo-600 font-semibold text-base md:text-lg mb-4 leading-snug">
+              {aboutData.headline}
             </p>
 
-            <p className="text-gray-600 mb-6 max-w-2xl leading-relaxed text-base">
+            <p className="text-gray-600 mb-6 max-w-2xl leading-relaxed text-sm md:text-base">
               {aboutData.about}
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-8 text-sm text-gray-600">
+            <div className="flex flex-wrap gap-2 mb-6 text-xs md:text-sm text-gray-600">
               <span className="inline-flex items-center gap-1 bg-white px-3 py-1 rounded-lg border border-gray-200 shadow-sm">
                 <MapPin className="w-4 h-4 text-indigo-600" /> {aboutData.location}
               </span>
@@ -54,7 +49,7 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="./Ariful_Islam_CV.pdf"
                 target="_blank"
@@ -71,63 +66,54 @@ export function Hero() {
                 Contact Me
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative flex flex-col items-center justify-center"
-          >
-            <div className="relative w-full max-w-lg aspect-[4/5] portfolio-hero-frame overflow-hidden flex items-end justify-center p-4">
+          <div className="relative flex flex-col items-center justify-center w-full">
+            <div className="relative w-full portfolio-hero-frame overflow-hidden flex items-end justify-center pt-4 px-4">
               <ImageWithFallback
                 src="./hero.png"
-                alt="Ariful Islam - Associate Lead Software Development"
+                alt="Ariful Islam — Associate Lead – Software Development"
                 className="w-full h-full object-contain pointer-events-none select-none"
                 style={{ zIndex: 1 }}
               />
             </div>
 
             <div
-              className="grid grid-cols-2 gap-4 w-full max-w-lg mt-4"
+              className="grid grid-cols-2 gap-3 w-full max-w-lg mt-4"
               style={{ zIndex: 2 }}
             >
-              <div className="portfolio-card p-4 flex items-center gap-3">
-                <div className="p-3 bg-indigo-50 rounded-xl text-indigo-600">
+              <div className="portfolio-card p-3 md:p-4 flex items-center gap-2">
+                <div className="p-2 bg-indigo-50 rounded-xl text-indigo-600">
                   <Cloud className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-medium">Multi-Cloud &amp; Hybrid</p>
-                  <p className="text-sm font-bold text-gray-900">Azure, AWS &amp; On-Prem</p>
+                  <p className="text-xs md:text-sm font-bold text-gray-900">Azure, AWS &amp; On-Prem</p>
                 </div>
               </div>
-              <div className="portfolio-card p-4 flex items-center gap-3">
-                <div className="p-3 bg-indigo-50 rounded-xl text-indigo-600">
+              <div className="portfolio-card p-3 md:p-4 flex items-center gap-2">
+                <div className="p-2 bg-indigo-50 rounded-xl text-indigo-600">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-medium">Identity &amp; Security</p>
-                  <p className="text-sm font-bold text-gray-900">SCIM &amp; Entra ID</p>
+                  <p className="text-xs md:text-sm font-bold text-gray-900">SCIM &amp; Entra ID</p>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Key Highlight Stats */}
-        <div className="mt-16 portfolio-stat-grid">
-          {aboutData.stats.map((stat, index) => (
-            <motion.div
+        <div className="mt-12 portfolio-stat-grid">
+          {aboutData.stats.map((stat) => (
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="portfolio-card p-6 text-center"
+              className="portfolio-card p-4 md:p-6 text-center"
             >
-              <p className="text-2xl font-bold portfolio-gradient-text mb-2">{stat.value}</p>
-              <p className="text-sm text-gray-600 font-medium">{stat.label}</p>
-            </motion.div>
+              <p className="text-xl md:text-2xl font-bold portfolio-gradient-text mb-1">{stat.value}</p>
+              <p className="text-xs md:text-sm text-gray-600 font-medium">{stat.label}</p>
+            </div>
           ))}
         </div>
       </div>

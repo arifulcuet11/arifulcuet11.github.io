@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Send, Mail, MapPin, Phone, Linkedin, Github, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import aboutData from './about.json';
 
@@ -54,19 +53,19 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 scroll-mt-24">
+    <section id="contact" className="py-20 md:py-24 px-4 md:px-6 scroll-mt-24">
       <div className="max-w-7xl mx-auto">
-        <div className="portfolio-contact-bg rounded-[3rem] p-8 md:p-16 text-white overflow-hidden relative">
+        <div className="portfolio-contact-bg rounded-3xl md:rounded-[3rem] p-6 md:p-16 text-white overflow-hidden relative">
           {/* Background decoration */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-800 rounded-full -mr-48 -mt-48 blur-3xl opacity-50" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-800 rounded-full -ml-32 -mb-32 blur-3xl opacity-50" />
 
-          <div className="grid md:grid-cols-2 gap-16 relative z-10 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 relative z-10 items-center">
             <div>
-              <h2 className="text-white mb-6 font-bold" style={{ fontSize: '2rem' }}>
+              <h2 className="text-white mb-6 font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)' }}>
                 Let&apos;s build scalable cloud solutions together
               </h2>
-              <p className="text-indigo-200 mb-10 text-base leading-relaxed">
+              <p className="text-indigo-200 mb-10 text-sm md:text-base leading-relaxed">
                 Looking for an Associate Lead or Multi-Cloud (Azure, AWS &amp; On-Premises) specialist to architect microservices, automate IaC (Bicep / Terraform) &amp; CI/CD, or integrate enterprise identity (SCIM / Entra ID)? Reach out directly.
               </p>
 
@@ -80,7 +79,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-indigo-300 text-xs uppercase tracking-wider">Email</p>
-                    <p className="font-semibold text-white">{aboutData.email}</p>
+                    <p className="font-semibold text-white text-sm md:text-base">{aboutData.email}</p>
                   </div>
                 </a>
 
@@ -93,7 +92,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-indigo-300 text-xs uppercase tracking-wider">Phone</p>
-                    <p className="font-semibold text-white">{aboutData.phone}</p>
+                    <p className="font-semibold text-white text-sm md:text-base">{aboutData.phone}</p>
                   </div>
                 </a>
 
@@ -103,11 +102,11 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-indigo-300 text-xs uppercase tracking-wider">Location</p>
-                    <p className="font-semibold text-white">{aboutData.location}</p>
+                    <p className="font-semibold text-white text-sm md:text-base">{aboutData.location}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 pt-2">
+                <div className="flex flex-wrap items-center gap-3 pt-2">
                   <a
                     href={aboutData.linkedin}
                     target="_blank"
@@ -128,11 +127,8 @@ export function Contact() {
               </div>
             </div>
 
-            <motion.form
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="bg-white p-8 rounded-3xl shadow-2xl"
+            <form
+              className="bg-white p-6 md:p-8 rounded-3xl shadow-2xl"
               onSubmit={handleSubmit}
             >
               <div className="space-y-4">
@@ -206,7 +202,7 @@ export function Contact() {
                   )}
                 </button>
               </div>
-            </motion.form>
+            </form>
           </div>
         </div>
       </div>

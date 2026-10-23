@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const experiences = [
@@ -9,7 +8,7 @@ const experiences = [
     location: 'Kuala Lumpur',
     period: 'Aug 2025 – Current',
     bullets: [
-      'Lead development and deployment of a multi-tenant SCIM identity platform (.NET, React, SQL Server microservices), delivered to Azure, AWS and customer on-premises data centres from one set of container images.',
+      'Lead development and deployment of a multi-tenant SCIM identity platform (.NET, React, SQL Server microservices), delivered to 3 target environments (Azure, AWS and customer on-premises data centres) from 1 shared set of container images.',
       'Azure: Bicep and GitHub Actions (OIDC) pipelines deploying to Container Apps and a private-network AKS cluster with Helm; VNets, private endpoints and private DNS, Key Vault and App Configuration, with an isolated environment per client.',
       'AWS: Terraform-provisioned VPC with public and private subnets, NAT gateway, route tables, security groups and VPC endpoints; ECS Fargate behind an Application Load Balancer and WAF; RDS for SQL Server, Secrets Manager, KMS, and CloudWatch alarms with SNS.',
       "On-premises / private cloud: Docker Compose on customer VMs behind an NGINX reverse proxy (TLS, WebSockets, subnet allow-lists), an outbound-only self-hosted GitHub runner, the customer's SQL Server, and secrets pulled from Azure Key Vault at deploy time.",
@@ -40,7 +39,7 @@ const experiences = [
     location: 'Dhaka',
     period: 'Jan 2022 – June 2022',
     bullets: [
-      'Built bus and launch ticket booking, mobile recharge, and loan management systems for major clients.'
+      'Built bus and launch ticket booking, mobile recharge, and loan management systems serving 1M+ users for major clients.'
     ],
     tags: [
       'Angular', 'TypeScript', 'NgRx', 'RxJS', 'TailwindCSS', 'Material-UI', 'PWA'
@@ -52,7 +51,7 @@ const experiences = [
     location: 'Essen, Germany',
     period: 'May 2021 – Dec 2021',
     bullets: [
-      'Built an online exam system with React, Next.js and .NET 6 on SQL Server, deployed via GitHub CI/CD to Ubuntu and Nginx.'
+      'Built an online exam system for 10,000+ students with React, Next.js and .NET 6 on SQL Server, deployed via GitHub CI/CD to Ubuntu and Nginx.'
     ],
     tags: [
       'React', 'Next.js', '.NET 6', 'SQL Server', 'GitHub Actions CI/CD', 'Ubuntu', 'Nginx', 'TailwindCSS'
@@ -64,7 +63,7 @@ const experiences = [
     location: 'Vilnius, Lithuania',
     period: 'Feb 2020 – June 2022',
     bullets: [
-      'Built reusable ERP components and migrated legacy AngularJS code to modern Angular.'
+      'Built reusable ERP components and migrated legacy AngularJS code to modern Angular across 8+ core business modules.'
     ],
     tags: [
       'Angular', 'AngularJS Migration', 'TypeScript', '.NET Core', 'Azure', 'SQL Server', 'Cosmos DB', 'React Native'
@@ -110,7 +109,7 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 bg-white px-6">
+    <section id="experience" className="py-20 md:py-24 bg-white px-4 md:px-6 scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full mb-4">
@@ -126,22 +125,18 @@ export function Experience() {
         </div>
 
         <div className="space-y-6 max-w-4xl mx-auto">
-          {experiences.map((exp, index) => (
-            <motion.div
+          {experiences.map((exp) => (
+            <div
               key={`${exp.company}-${exp.role}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.06 }}
-              viewport={{ once: true }}
-              className="relative pl-8 border-l-2 border-indigo-100"
+              className="relative pl-5 md:pl-8 border-l-2 border-indigo-100"
             >
               <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-50" />
 
-              <div className="portfolio-card p-6 md:p-8">
+              <div className="portfolio-card p-5 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">{exp.role}</h3>
-                    <div className="flex flex-wrap items-center gap-4 text-sm mt-2">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900">{exp.role}</h3>
+                    <div className="flex flex-wrap items-center gap-3 text-sm mt-2">
                       <span className="inline-flex items-center gap-1 text-indigo-600 font-semibold">
                         <Briefcase className="w-4 h-4" /> {exp.company}
                       </span>
@@ -155,7 +150,7 @@ export function Experience() {
                   </div>
                 </div>
 
-                <ul className="portfolio-bullet-list mb-6">
+                <ul className="portfolio-bullet-list mb-6 text-sm md:text-base">
                   {exp.bullets.map((bullet, i) => (
                     <li key={i}>{bullet}</li>
                   ))}
@@ -169,7 +164,7 @@ export function Experience() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

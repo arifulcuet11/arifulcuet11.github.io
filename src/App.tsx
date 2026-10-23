@@ -9,8 +9,27 @@ import { Education } from './components/Education';
 import { Footer } from './components/Footer';
 
 export default function App() {
+  React.useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+        }
+      }
+    };
+
+    scrollToHash();
+    window.addEventListener('hashchange', scrollToHash);
+    return () => window.removeEventListener('hashchange', scrollToHash);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-indigo-100 selection:text-indigo-700">
+    <div className="min-h-screen bg-white font-sans selection:bg-indigo-100 selection:text-indigo-700 overflow-hidden">
       <Navbar />
       <main>
         <Hero />

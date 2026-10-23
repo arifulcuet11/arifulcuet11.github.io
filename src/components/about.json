@@ -9,10 +9,10 @@
   "portfolio": "https://arifulcuet11.github.io",
   "about": "Cloud engineer and Associate Lead with 9+ years building cloud-native systems in .NET, React and Angular. Designs, deploys and runs microservices on Azure (private AKS, Container Apps), AWS (ECS Fargate, RDS) and customer on-premises data centres, using infrastructure as code (Bicep, Terraform), GitHub Actions CI/CD and private networking. Specialist in SCIM and Entra ID identity integration, leading teams that deliver secure, scalable platforms across finance, education and transportation.",
   "stats": [
-    { "value": "9+", "label": "Years Experience" },
-    { "value": "Azure · AWS · On-Prem", "label": "Multi-Cloud & Hybrid" },
-    { "value": "Bicep & Terraform", "label": "Infrastructure as Code" },
-    { "value": "SCIM & Entra ID", "label": "Enterprise Identity" }
+    { "value": "9+ Years", "label": "Cloud & Full-Stack Engineering" },
+    { "value": "3 Platforms", "label": "Azure, AWS & On-Premises from 1 Image Set" },
+    { "value": "100% IaC", "label": "Bicep, Terraform & OIDC CI/CD" },
+    { "value": "1M+ Users", "label": "Served Across Enterprise Platforms" }
   ],
   "skills": [
     {

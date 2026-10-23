@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Cloud, Workflow, Server, Layout, ShieldCheck, Code2, Network } from 'lucide-react';
 import aboutData from './about.json';
 
@@ -14,7 +13,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function TechStack() {
   return (
-    <section id="skills" className="py-24 portfolio-section-alt px-6">
+    <section id="skills" className="py-20 md:py-24 portfolio-section-alt px-4 md:px-6 scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full mb-4">
@@ -30,15 +29,11 @@ export function TechStack() {
         </div>
 
         <div className="portfolio-grid-3">
-          {aboutData.skills.map((skill, idx) => {
+          {aboutData.skills.map((skill) => {
             const IconComponent = iconMap[skill.icon] || Code2;
             return (
-              <motion.div
+              <div
                 key={skill.category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.08 }}
-                viewport={{ once: true }}
                 className="portfolio-card p-6 flex flex-col justify-between"
               >
                 <div>
@@ -61,7 +56,7 @@ export function TechStack() {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
