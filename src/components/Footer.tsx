@@ -47,7 +47,7 @@ export function Footer() {
             <Phone className="w-5 h-5" />
           </a>
           <a
-            href="./Ariful_Islam_CV.pdf"
+            href="./Ariful_Islam_CV.pdf?v=202610"
             target="_blank"
             rel="noopener noreferrer"
             download="Ariful_Islam_CV.pdf"

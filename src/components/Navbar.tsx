@@ -36,8 +36,8 @@ export function Navbar() {
             <span className="font-bold text-gray-900 tracking-tight text-lg block" style={{ lineHeight: 1.1 }}>
               {aboutData.name}
             </span>
-            <span className="text-xs text-indigo-600 font-medium hidden md:block">
-              Associate Lead – Software Development | Azure · AWS · On-Premises | Kubernetes (AKS) | .NET · React
+            <span className="text-xs text-indigo-600 font-medium block">
+              Azure · AWS · On-Premises | Kubernetes (AKS) | .NET · React
             </span>
           </div>
         </a>
@@ -53,7 +53,7 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href="./Ariful_Islam_CV.pdf"
+            href="./Ariful_Islam_CV.pdf?v=202610"
             target="_blank"
             rel="noopener noreferrer"
             download="Ariful_Islam_CV.pdf"
@@ -114,7 +114,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="./Ariful_Islam_CV.pdf"
+              href="./Ariful_Islam_CV.pdf?v=202610"
               target="_blank"
               rel="noopener noreferrer"
               download="Ariful_Islam_CV.pdf"

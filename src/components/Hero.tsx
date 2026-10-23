@@ -51,7 +51,7 @@ export function Hero() {
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="./Ariful_Islam_CV.pdf"
+                href="./Ariful_Islam_CV.pdf?v=202610"
                 target="_blank"
                 rel="noopener noreferrer"
                 download="Ariful_Islam_CV.pdf"
@@ -71,7 +71,7 @@ export function Hero() {
           <div className="relative flex flex-col items-center justify-center w-full">
             <div className="relative w-full portfolio-hero-frame overflow-hidden flex items-end justify-center pt-4 px-4">
               <ImageWithFallback
-                src="./hero.png"
+                src="./hero.png?v=202610"
                 alt="Ariful Islam — Associate Lead – Software Development"
                 className="w-full h-full object-contain pointer-events-none select-none"
                 style={{ zIndex: 1 }}
