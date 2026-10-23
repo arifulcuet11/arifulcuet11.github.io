@@ -1,19 +1,60 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Layers, Cloud, ShieldCheck, Users } from 'lucide-react';
 
-const experiences = [
+type ExperienceItem = {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  summary?: string;
+  highlights?: { icon: typeof Layers; title: string; text: string }[];
+  impact?: { value: string; label: string }[];
+  bulletsHeading?: string;
+  bullets: string[];
+  tags: string[];
+};
+
+const experiences: ExperienceItem[] = [
   {
     role: 'Associate Lead – Software Development',
     company: 'Kloudynet Technologies',
     location: 'Kuala Lumpur',
     period: 'Aug 2025 – Current',
+    summary:
+      'Lead engineer on <strong>KloudIdentity</strong>, a multi-tenant identity governance platform that provisions users from Microsoft Entra ID into enterprise applications via SCIM, with identity sync, access reviews and governance insights. Own the architecture and delivery model that lets one product run on <strong>Azure, AWS or a customer’s own data centre</strong>.',
+    highlights: [
+      {
+        icon: Layers,
+        title: 'Product & Architecture',
+        text: 'Event-driven .NET microservices (MassTransit, RabbitMQ), a React management portal and SQL Server, with SCIM provisioning, identity sync, access reviews and governance insights as separate services.'
+      },
+      {
+        icon: Cloud,
+        title: 'Multi-Cloud Delivery',
+        text: 'One container image set, three targets: Azure (private AKS, Container Apps, Bicep), AWS (VPC, ECS Fargate, RDS, ALB/WAF, Terraform) and on-premises (Docker Compose behind NGINX).'
+      },
+      {
+        icon: ShieldCheck,
+        title: 'Security by Default',
+        text: 'OIDC-federated pipelines, secrets kept in Key Vault or Secrets Manager, private networking, and least-privilege SQL logins per service.'
+      },
+      {
+        icon: Users,
+        title: 'Technical Leadership',
+        text: 'Mentor engineers, run code reviews (clean architecture, SOLID), drive technical decisions, and write client onboarding runbooks and customer setup guides.'
+      }
+    ],
+    impact: [
+      { value: '1 release → 3 platforms', label: 'The same images and configuration run on Azure, AWS and on-premises' },
+      { value: 'Keyless CI/CD', label: 'GitHub Actions sign in to Azure and AWS through OIDC federation' },
+      { value: 'Repeatable onboarding', label: 'A new client is config files plus two pipeline runs: infrastructure, then services' }
+    ],
+    bulletsHeading: 'Platform details',
     bullets: [
-      'Lead development and deployment of a multi-tenant SCIM identity platform (.NET, React, SQL Server microservices), delivered to 3 target environments (Azure, AWS and customer on-premises data centres) from 1 shared set of container images.',
       'Azure: Bicep and GitHub Actions (OIDC) pipelines deploying to Container Apps and a private-network AKS cluster with Helm; VNets, private endpoints and private DNS, Key Vault and App Configuration, with an isolated environment per client.',
       'AWS: Terraform-provisioned VPC with public and private subnets, NAT gateway, route tables, security groups and VPC endpoints; ECS Fargate behind an Application Load Balancer and WAF; RDS for SQL Server, Secrets Manager, KMS, and CloudWatch alarms with SNS.',
       "On-premises / private cloud: Docker Compose on customer VMs behind an NGINX reverse proxy (TLS, WebSockets, subnet allow-lists), an outbound-only self-hosted GitHub runner, the customer's SQL Server, and secrets pulled from Azure Key Vault at deploy time.",
-      'Enforced least-privilege database access on all three platforms with re-runnable PowerShell, Bash and Python scripts; monitor production with Azure Monitor and Application Insights.',
-      'Mentor engineers, run code reviews (clean architecture, SOLID), and write client onboarding runbooks and customer setup guides.'
+      'Least-privilege database access on all three platforms with re-runnable PowerShell, Bash and Python scripts; production monitoring with Azure Monitor and Application Insights.'
     ],
     tags: [
       '.NET Core', 'React', 'SQL Server', 'SCIM', 'Azure AKS (Private)', 'Container Apps', 'Bicep', 'AWS ECS Fargate', 'AWS RDS', 'Terraform', 'VPC / VNet', 'Helm', 'Docker Compose', 'NGINX', 'GitHub Actions (OIDC)', 'Key Vault', 'Secrets Manager'
@@ -149,6 +190,42 @@ export function Experience() {
                     <Calendar className="w-4 h-4" /> {exp.period}
                   </div>
                 </div>
+
+                {exp.summary && (
+                  <p
+                    className="portfolio-exp-summary text-sm md:text-base"
+                    dangerouslySetInnerHTML={{ __html: exp.summary }}
+                  />
+                )}
+
+                {exp.highlights && (
+                  <div className="portfolio-highlight-grid">
+                    {exp.highlights.map(({ icon: Icon, title, text }) => (
+                      <div key={title} className="portfolio-highlight">
+                        <span className="portfolio-highlight-icon">
+                          <Icon className="w-5 h-5" />
+                        </span>
+                        <div>
+                          <p className="portfolio-highlight-title">{title}</p>
+                          <p className="portfolio-highlight-text">{text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {exp.impact && (
+                  <div className="portfolio-impact">
+                    {exp.impact.map((item) => (
+                      <div key={item.value} className="portfolio-impact-item">
+                        <span className="portfolio-impact-value">{item.value}</span>
+                        <span className="portfolio-impact-label">{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {exp.bulletsHeading && <p className="portfolio-subheading">{exp.bulletsHeading}</p>}
 
                 <ul className="portfolio-bullet-list mb-6 text-sm md:text-base">
                   {exp.bullets.map((bullet, i) => (

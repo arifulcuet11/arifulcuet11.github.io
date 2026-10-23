@@ -11,8 +11,8 @@ const projects = [
       'Designed and deployed a multi-tenant SCIM & Entra ID identity platform (.NET, React, SQL Server microservices) delivered to Azure (private AKS, Container Apps via Bicep & Helm), AWS (ECS Fargate, RDS, ALB/WAF via Terraform), and customer on-premises VMs (Docker Compose behind NGINX) from one set of container images.',
     metrics: [
       '1 container image set deployed across 3 target topologies (Azure, AWS, On-Premises)',
-      '100% IaC & zero-secret OIDC CI/CD via Bicep, Terraform, Helm & GitHub Actions',
-      'Per-client network isolation with VNet/VPC private endpoints & least-privilege DB scripts'
+      'Infrastructure as code (Bicep, Terraform, Helm) and OIDC CI/CD with no long-lived cloud keys',
+      'Private networking per environment (Azure private endpoints, AWS private subnets) and least-privilege SQL logins'
     ],
     hasDiagram: true,
     tags: ['.NET Core', 'React', 'SCIM', 'Entra ID', 'Azure AKS', 'AWS ECS Fargate', 'Bicep', 'Terraform', 'Helm', 'Docker Compose', 'GitHub Actions (OIDC)', 'MassTransit', 'RabbitMQ'],
@@ -93,7 +93,43 @@ const projects = [
   }
 ];
 
+const archColumns = [
+  {
+    title: '1. Azure Cloud (Bicep & Helm)',
+    boxes: [
+      { title: 'Per-Client VNet & Private DNS', text: 'Private endpoints • subnet isolation' },
+      { title: 'Private AKS & Container Apps', text: 'Helm charts • same container images', accent: true },
+      { title: 'Azure SQL • Key Vault', text: 'Entra ID SQL auth • App Insights' }
+    ],
+    footer: { title: 'Provisioning: Bicep + GitHub OIDC', text: 'Isolated environment per client' }
+  },
+  {
+    title: '2. AWS Cloud (Terraform)',
+    boxes: [
+      { title: 'VPC: Public / App / Data Subnets', text: '2 AZs • NAT gateway • security groups' },
+      { title: 'ECS Fargate (Private Subnets)', text: 'Behind ALB + WAF • no public IPs', accent: true },
+      { title: 'RDS SQL Server • Secrets Manager', text: 'KMS encryption • CloudWatch + SNS' }
+    ],
+    footer: { title: 'Provisioning: Terraform + GitHub OIDC', text: 'S3 remote state • one-off DB bootstrap' }
+  },
+  {
+    title: '3. On-Premises / Private Cloud',
+    boxes: [
+      { title: 'NGINX Reverse Proxy', text: 'TLS • WebSockets • subnet allow-lists' },
+      { title: 'Docker Compose on Customer VMs', text: 'Same images • migrations before start', accent: true },
+      { title: "Customer's SQL Server", text: 'Secrets pulled from Key Vault at deploy' }
+    ],
+    footer: { title: 'Provisioning: Self-Hosted Runner', text: 'Outbound only • no inbound CI/CD ports' }
+  }
+];
+
 function ScimArchitectureDiagram() {
+  const font = 'Inter, sans-serif';
+  const colW = 296;
+  const colGap = 16;
+  const colTop = 186;
+  const colX = (i: number) => 20 + i * (colW + colGap);
+
   return (
     <div className="mb-6 rounded-2xl border border-indigo-100 bg-slate-50 p-3 md:p-5 overflow-hidden">
       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
@@ -101,15 +137,15 @@ function ScimArchitectureDiagram() {
           <Cpu className="w-4 h-4 text-indigo-600" /> Reference Architecture: Single Image Set &rarr; 3 Deployment Topologies
         </span>
         <span className="text-xs text-gray-500 font-medium">
-          Zero hardcoded secrets &middot; OIDC CI/CD &middot; Least-Privilege SQL
+          No hardcoded secrets &middot; OIDC CI/CD &middot; Least-Privilege SQL
         </span>
       </div>
       <div className="w-full overflow-x-auto">
         <svg
-          viewBox="0 0 960 430"
+          viewBox="0 0 960 500"
           className="w-full h-auto"
           role="img"
-          aria-label="Multi-Tenant SCIM Identity Platform Architecture across Azure, AWS, and On-Premises"
+          aria-label="One container image set deployed to Azure, AWS and on-premises, sharing Entra ID and Azure App Configuration"
           style={{ minWidth: '640px' }}
         >
           <defs>
@@ -123,139 +159,82 @@ function ScimArchitectureDiagram() {
             </marker>
           </defs>
 
-          {/* Background */}
-          <rect x="0" y="0" width="960" height="430" rx="16" fill="#f8fafc" />
+          <rect x="0" y="0" width="960" height="500" rx="16" fill="#f8fafc" />
 
-          {/* Top Bar: Identity Source + CI/CD & Shared Container Images */}
-          <rect x="20" y="14" width="920" height="72" rx="12" fill="url(#archHeader)" />
-          <text x="44" y="42" fill="#ffffff" fontSize="14" fontWeight="700" fontFamily="Inter, sans-serif">
-            Shared Build &amp; Identity Core — GitHub Actions (OIDC) + Single Container Image Set
+          {/* Shared release: one image set built by GitHub Actions */}
+          <rect x="20" y="14" width="920" height="70" rx="12" fill="url(#archHeader)" />
+          <text x="40" y="42" fill="#ffffff" fontSize="14" fontWeight="700" fontFamily={font}>
+            Shared Release — GitHub Actions (OIDC) builds one container image set
           </text>
-          <text x="44" y="64" fill="#c7d2fe" fontSize="11.5" fontWeight="500" fontFamily="Inter, sans-serif">
-            Entra ID / OAuth2 / OIDC   &bull;   SCIM 2.0 Provisioning Engine (.NET Core)   &bull;   React Admin Portal   &bull;   MassTransit / RabbitMQ
-          </text>
-
-          {/* Connector arrows from Top Bar to 3 Columns */}
-          <line x1="170" y1="86" x2="170" y2="112" stroke="#6366f1" strokeWidth="2" markerEnd="url(#arrowIndigo)" />
-          <line x1="480" y1="86" x2="480" y2="112" stroke="#6366f1" strokeWidth="2" markerEnd="url(#arrowIndigo)" />
-          <line x1="790" y1="86" x2="790" y2="112" stroke="#6366f1" strokeWidth="2" markerEnd="url(#arrowIndigo)" />
-
-          {/* Column 1: AZURE */}
-          <rect x="20" y="118" width="294" height="296" rx="12" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
-          <rect x="20" y="118" width="294" height="38" rx="12" fill="#eef2ff" />
-          <text x="36" y="142" fill="#312e81" fontSize="13" fontWeight="700" fontFamily="Inter, sans-serif">
-            1. Azure Cloud (Bicep &amp; Helm)
+          <text x="40" y="64" fill="#c7d2fe" fontSize="11.5" fontWeight="500" fontFamily={font}>
+            .NET SCIM &amp; identity microservices  •  React management portal  •  MassTransit / RabbitMQ  •  SQL Server
           </text>
 
-          <rect x="36" y="168" width="262" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
-          <text x="48" y="188" fill="#1e293b" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            Isolated Client VNet &amp; Private DNS
+          {/* Shared control plane used by every target */}
+          <rect x="20" y="96" width="920" height="54" rx="12" fill="#eef2ff" stroke="#c7d2fe" strokeWidth="1.5" />
+          <text x="40" y="119" fill="#312e81" fontSize="12.5" fontWeight="700" fontFamily={font}>
+            Shared Azure Control Plane — used by all three targets
           </text>
-          <text x="48" y="206" fill="#475569" fontSize="10.5" fontFamily="Inter, sans-serif">
-            Private Endpoints &bull; Subnet Isolation &bull; TLS Ingress
-          </text>
-
-          <rect x="36" y="230" width="262" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe" />
-          <text x="48" y="250" fill="#312e81" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            Private AKS Cluster &amp; Container Apps
-          </text>
-          <text x="48" y="268" fill="#4338ca" fontSize="10.5" fontFamily="Inter, sans-serif">
-            Helm Charts &bull; .NET SCIM API &amp; React Workloads
+          <text x="40" y="138" fill="#4338ca" fontSize="11" fontFamily={font}>
+            Entra ID (sign-in &amp; SCIM source)  •  App Configuration (settings)  •  Key Vault (secrets for Azure &amp; on-premises)
           </text>
 
-          <rect x="36" y="296" width="262" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
-          <text x="48" y="316" fill="#1e293b" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            Azure SQL &bull; Key Vault &bull; App Config
-          </text>
-          <text x="48" y="334" fill="#475569" fontSize="10.5" fontFamily="Inter, sans-serif">
-            Least-Privilege DB Scripts &bull; Azure Monitor / App Insights
-          </text>
+          {[0, 1, 2].map((i) => (
+            <line
+              key={i}
+              x1={colX(i) + colW / 2}
+              y1={150}
+              x2={colX(i) + colW / 2}
+              y2={colTop - 6}
+              stroke="#6366f1"
+              strokeWidth="2"
+              markerEnd="url(#arrowIndigo)"
+            />
+          ))}
 
-          <rect x="36" y="358" width="262" height="42" rx="8" fill="#f1f5f9" />
-          <text x="48" y="376" fill="#334155" fontSize="10.5" fontWeight="600" fontFamily="Inter, sans-serif">
-            Provisioning: Bicep + GitHub OIDC
-          </text>
-          <text x="48" y="391" fill="#64748b" fontSize="10" fontFamily="Inter, sans-serif">
-            Dedicated environment per enterprise tenant
-          </text>
+          {archColumns.map((col, i) => {
+            const x = colX(i);
+            return (
+              <g key={col.title}>
+                <rect x={x} y={colTop} width={colW} height={300} rx="12" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
+                <rect x={x} y={colTop} width={colW} height={38} rx="12" fill="#eef2ff" />
+                <text x={x + 16} y={colTop + 24} fill="#312e81" fontSize="13" fontWeight="700" fontFamily={font}>
+                  {col.title}
+                </text>
 
-          {/* Column 2: AWS */}
-          <rect x="333" y="118" width="294" height="296" rx="12" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
-          <rect x="333" y="118" width="294" height="38" rx="12" fill="#eef2ff" />
-          <text x="349" y="142" fill="#312e81" fontSize="13" fontWeight="700" fontFamily="Inter, sans-serif">
-            2. AWS Cloud (Terraform)
-          </text>
+                {col.boxes.map((box, j) => {
+                  const y = colTop + 50 + j * 62;
+                  return (
+                    <g key={box.title}>
+                      <rect
+                        x={x + 14}
+                        y={y}
+                        width={colW - 28}
+                        height={52}
+                        rx="8"
+                        fill={box.accent ? '#eef2ff' : '#f8fafc'}
+                        stroke={box.accent ? '#c7d2fe' : '#e2e8f0'}
+                      />
+                      <text x={x + 26} y={y + 21} fill={box.accent ? '#312e81' : '#1e293b'} fontSize="11.5" fontWeight="700" fontFamily={font}>
+                        {box.title}
+                      </text>
+                      <text x={x + 26} y={y + 39} fill={box.accent ? '#4338ca' : '#475569'} fontSize="10.5" fontFamily={font}>
+                        {box.text}
+                      </text>
+                    </g>
+                  );
+                })}
 
-          <rect x="349" y="168" width="262" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
-          <text x="361" y="188" fill="#1e293b" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            VPC (Public/Private Subnets) + WAF
-          </text>
-          <text x="361" y="206" fill="#475569" fontSize="10.5" fontFamily="Inter, sans-serif">
-            ALB &bull; NAT Gateway &bull; Security Groups &bull; VPC Endpoints
-          </text>
-
-          <rect x="349" y="230" width="262" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe" />
-          <text x="361" y="250" fill="#312e81" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            Amazon ECS Fargate (Private Subnets)
-          </text>
-          <text x="361" y="268" fill="#4338ca" fontSize="10.5" fontFamily="Inter, sans-serif">
-            Same Container Images &bull; Auto-Scaled Tasks
-          </text>
-
-          <rect x="349" y="296" width="262" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
-          <text x="361" y="316" fill="#1e293b" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            RDS (SQL Server) &bull; Secrets Manager &bull; KMS
-          </text>
-          <text x="361" y="334" fill="#475569" fontSize="10.5" fontFamily="Inter, sans-serif">
-            CloudWatch Alarms + SNS Alerts &bull; Encrypted Storage
-          </text>
-
-          <rect x="349" y="358" width="262" height="42" rx="8" fill="#f1f5f9" />
-          <text x="361" y="376" fill="#334155" fontSize="10.5" fontWeight="600" fontFamily="Inter, sans-serif">
-            Provisioning: Terraform + GitHub OIDC
-          </text>
-          <text x="361" y="391" fill="#64748b" fontSize="10" fontFamily="Inter, sans-serif">
-            Automated state &amp; least-privilege IAM/DB roles
-          </text>
-
-          {/* Column 3: ON-PREMISES */}
-          <rect x="646" y="118" width="294" height="296" rx="12" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
-          <rect x="646" y="118" width="294" height="38" rx="12" fill="#eef2ff" />
-          <text x="662" y="142" fill="#312e81" fontSize="13" fontWeight="700" fontFamily="Inter, sans-serif">
-            3. On-Premises / Private Cloud
-          </text>
-
-          <rect x="662" y="168" width="262" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
-          <text x="674" y="188" fill="#1e293b" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            NGINX Reverse Proxy &amp; Perimeter
-          </text>
-          <text x="674" y="206" fill="#475569" fontSize="10.5" fontFamily="Inter, sans-serif">
-            TLS Termination &bull; WebSockets &bull; Subnet Allow-Lists
-          </text>
-
-          <rect x="662" y="230" width="262" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe" />
-          <text x="674" y="250" fill="#312e81" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            Docker Compose on Customer VMs
-          </text>
-          <text x="674" y="268" fill="#4338ca" fontSize="10.5" fontFamily="Inter, sans-serif">
-            Outbound-Only Self-Hosted GitHub Runner
-          </text>
-
-          <rect x="662" y="296" width="262" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
-          <text x="674" y="316" fill="#1e293b" fontSize="11.5" fontWeight="700" fontFamily="Inter, sans-serif">
-            Customer SQL Server + Key Vault Pull
-          </text>
-          <text x="674" y="334" fill="#475569" fontSize="10.5" fontFamily="Inter, sans-serif">
-            Deploy-Time Secret Fetch &bull; PowerShell/Bash/Python DB Scripts
-          </text>
-
-          <rect x="662" y="358" width="262" height="42" rx="8" fill="#f1f5f9" />
-          <text x="674" y="376" fill="#334155" fontSize="10.5" fontWeight="600" fontFamily="Inter, sans-serif">
-            Provisioning: Self-Hosted Runner + Runbooks
-          </text>
-          <text x="674" y="391" fill="#64748b" fontSize="10" fontFamily="Inter, sans-serif">
-            No inbound firewall ports required from internet
-          </text>
+                <rect x={x + 14} y={colTop + 238} width={colW - 28} height={48} rx="8" fill="#f1f5f9" />
+                <text x={x + 26} y={colTop + 257} fill="#334155" fontSize="10.5" fontWeight="600" fontFamily={font}>
+                  {col.footer.title}
+                </text>
+                <text x={x + 26} y={colTop + 274} fill="#64748b" fontSize="10" fontFamily={font}>
+                  {col.footer.text}
+                </text>
+              </g>
+            );
+          })}
         </svg>
       </div>
     </div>
