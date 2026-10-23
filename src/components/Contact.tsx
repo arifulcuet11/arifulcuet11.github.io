@@ -16,7 +16,7 @@ export function Contact() {
     setStatusMessage('');
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${aboutData.email}`, {
+      const response = await fetch('https://formsubmit.co/ajax/5a2e4ae318791231a182555c888ed6c5', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
